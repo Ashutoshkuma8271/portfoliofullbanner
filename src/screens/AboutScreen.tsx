@@ -104,35 +104,35 @@ export const AboutScreen: React.FC<AboutScreenProps> = ({ onOpenCollaborate }) =
   const activePhoto = activePhotoIndex !== null ? GALLERY_PHOTOS[activePhotoIndex] : null;
 
   return (
-    <div className="w-full bg-[#131314] text-[#e5e2e3] py-16 px-5 lg:px-20 max-w-[1440px] mx-auto space-y-24">
+    <div className="w-full bg-[#11100e] text-[#e5e2e3] py-10 sm:py-16 px-4 sm:px-6 lg:px-20 max-w-[1440px] mx-auto space-y-16 sm:space-y-24">
       {/* Editorial Monograph Header */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        <div className="lg:col-span-7 space-y-6">
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div className="lg:col-span-7 space-y-5">
           <div className="space-y-1.5">
-            <span className="font-['Montserrat'] text-[10px] font-semibold text-[#f2ca50] tracking-[0.25em] uppercase block">
+            <span className="font-['Montserrat'] text-[9.5px] sm:text-[10px] font-bold text-[#f2ca50] tracking-[0.22em] uppercase block">
               Diplomatic Biography &amp; Lineage
             </span>
-            <h1 className="font-['Cinzel'] text-[30px] sm:text-[38px] lg:text-[44px] font-normal leading-tight text-[#f4efe6]">
+            <h1 className="font-['Cinzel'] text-[26px] sm:text-[36px] lg:text-[44px] font-normal leading-tight text-[#f4efe6]">
               Architect of <span className="italic font-serif text-[#f2ca50]">Sovereign Corridors</span>
             </h1>
           </div>
 
-          <p className="font-serif text-[16px] sm:text-[18px] text-[#e9c176] font-light leading-relaxed border-l-2 border-[#d4af37] pl-3.5">
+          <p className="font-serif text-[15px] sm:text-[17px] text-[#e9c176] font-light leading-relaxed border-l-2 border-[#d4af37] pl-3.5">
             Bridging institutional diplomacy with global cinematic expression, Zeenat Kureshi occupies a distinctive vantage point at the crossroads of GCC-South Asia commerce and cultural statecraft.
           </p>
 
-          <p className="font-['Montserrat'] text-[13.5px] sm:text-[14px] text-[#c8beaa] font-light leading-relaxed">
+          <p className="font-['Montserrat'] text-[12.5px] sm:text-[13.5px] text-[#c8beaa] font-light leading-relaxed">
             Serving as GCC–India Trade Commissioner, she has been instrumental in orchestrating landmark bilateral trade dialogues, sovereign inward FDI conduits, and regulatory harmonization across UAE, Saudi Arabia, Qatar, and India. Concurrently, as an internationally recognized film producer, her screen works marry evocative human narratives with rigorous international co-production treaties.
           </p>
 
-          <p className="font-['Montserrat'] text-[13.5px] sm:text-[14px] text-[#c8beaa] font-light leading-relaxed">
+          <p className="font-['Montserrat'] text-[12.5px] sm:text-[13.5px] text-[#c8beaa] font-light leading-relaxed">
             In her civic mandate as National President of the Women Leadership Council, she has mobilized over 120,000 women across the subcontinent and Middle East through targeted enterprise grants, board parity advocacy, and executive governance fellowships.
           </p>
 
           <div className="flex flex-wrap gap-3 pt-2">
             <button
               onClick={onOpenCollaborate}
-              className="px-6 py-3 bg-gradient-to-r from-[#d4af37] via-[#f2ca50] to-[#e6bc48] text-[#1a1402] font-['Montserrat'] text-[10.5px] font-bold tracking-[0.18em] uppercase hover:brightness-110 transition-all cursor-pointer shadow-md rounded"
+              className="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-[#d4af37] via-[#f2ca50] to-[#e6bc48] text-[#1a1402] font-['Montserrat'] text-[10px] sm:text-[10.5px] font-bold tracking-[0.16em] uppercase hover:brightness-110 transition-all cursor-pointer shadow-lg rounded-lg text-center"
             >
               Request Diplomatic Audience
             </button>
@@ -140,7 +140,7 @@ export const AboutScreen: React.FC<AboutScreenProps> = ({ onOpenCollaborate }) =
         </div>
 
         <div className="lg:col-span-5">
-          <div className="relative aspect-[4/5] rounded-xl overflow-hidden shadow-2xl border border-[#4d4635] bg-[#1c1b1c] group">
+          <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border border-[#3e3422] bg-[#1c1b1c] group">
             <img
               alt="Zeenat Kureshi Monograph Portrait"
               loading="lazy"
@@ -151,11 +151,11 @@ export const AboutScreen: React.FC<AboutScreenProps> = ({ onOpenCollaborate }) =
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6IHnCaef41g32aYh105zuRmheL7FwAT-AndGJukXlIE3t4L0szoFQEx8N8S3oPLqPmulPo5Oo776ceRauA2mrWttmN0hpVMmyTa0pTwujXGtjzvMUBiUugC_-F00w5D3skN_AK9FxGE5wHuyFUOuCnS9w6PXK7qD9McLtiTa4qfAhLXGi3BBaDbauoUWTQ5ZowUhwCKD9zWtPptwld2KaXrFj9Uge6Tg0vxx9dGPBUC0JjEbTLaxZ"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0e0e0f] via-transparent to-transparent"></div>
-            <div className="absolute bottom-6 left-6 right-6 p-4 bg-[#0e0e0f]/90 backdrop-blur-md border border-[#4d4635]/60 rounded-lg">
-              <span className="font-sans text-[11px] font-bold text-[#f2ca50] tracking-widest uppercase block">
+            <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 p-3.5 sm:p-4 bg-[#0e0e0f]/92 backdrop-blur-md border border-[#4d4635]/60 rounded-xl shadow-xl">
+              <span className="font-['Montserrat'] text-[10px] sm:text-[10.5px] font-bold text-[#f2ca50] tracking-widest uppercase block">
                 Official Credential Holder
               </span>
-              <span className="font-sans text-[13px] text-[#e5e2e3]">
+              <span className="font-['Montserrat'] text-[11.5px] sm:text-[12.5px] text-[#e5e2e3] font-light">
                 Office of the Trade Commissioner • GCC Corridor
               </span>
             </div>
@@ -163,38 +163,54 @@ export const AboutScreen: React.FC<AboutScreenProps> = ({ onOpenCollaborate }) =
         </div>
       </section>
 
-      {/* Diplomatic Accreditations & Honours */}
-      <section className="bg-[#1c1b1c] p-8 lg:p-14 border border-[#4d4635]/40 rounded-xl space-y-8">
+      {/* Diplomatic Accreditations & Honours - Perfectly Responsive & Non-Breaking */}
+      <section className="bg-[#161410] p-5 sm:p-8 lg:p-12 border border-[#3e3422] rounded-2xl space-y-6 sm:space-y-8 shadow-xl">
         <div className="max-w-2xl space-y-2">
-          <span className="font-sans text-[11px] font-semibold text-[#f2ca50] tracking-[0.25em] uppercase">
-            Institutional Standing
-          </span>
-          <h2 className="font-serif text-[32px] sm:text-[38px] text-[#e5e2e3]">
-            Sovereign Accreditations &amp; Decor
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1f1a14] border border-[#d4af37]/40 text-[#f2ca50] text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.22em] rounded-full shadow-sm">
+            <Sparkles className="w-3 h-3 text-[#f2ca50]" />
+            <span>Institutional Standing</span>
+          </div>
+          <h2 className="font-['Cinzel'] text-[24px] sm:text-[32px] lg:text-[38px] font-normal text-[#f4efe6] leading-tight tracking-tight">
+            Sovereign Accreditations &amp; Honours
           </h2>
+          <p className="font-['Montserrat'] text-[12.5px] sm:text-[13.5px] text-[#c8beaa] font-light leading-relaxed">
+            Statutory credentials, ministerial appointments, and accredited international fellowships.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="p-6 bg-[#0e0e0f] border border-[#4d4635] space-y-3 rounded">
-            <Award className="w-8 h-8 text-[#f2ca50]" />
-            <h4 className="font-serif text-[18px] text-[#e5e2e3]">Bilateral Economic Envoy</h4>
-            <p className="font-sans text-[13px] text-[#d0c5af] leading-relaxed">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+          <div className="p-5 sm:p-6 bg-[#0f0e0c] border border-[#2e2617] hover:border-[#d4af37]/60 space-y-3 rounded-xl transition-all shadow-md group">
+            <div className="w-11 h-11 rounded-lg bg-[#1a1712] border border-[#3e3422] flex items-center justify-center text-[#f2ca50] group-hover:border-[#f2ca50] transition-colors">
+              <Award className="w-5 h-5 text-[#f2ca50]" />
+            </div>
+            <h4 className="font-['Cinzel'] text-[16px] sm:text-[17px] text-[#f4efe6] font-medium leading-snug">
+              Bilateral Economic Envoy
+            </h4>
+            <p className="font-['Montserrat'] text-[12px] sm:text-[12.5px] text-[#b8ad96] font-light leading-relaxed">
               Certified by the Joint Trade Council for pioneering the UAE-India Comprehensive Economic Partnership treaty conduits.
             </p>
           </div>
 
-          <div className="p-6 bg-[#0e0e0f] border border-[#4d4635] space-y-3 rounded">
-            <Globe className="w-8 h-8 text-[#e9c176]" />
-            <h4 className="font-serif text-[18px] text-[#e5e2e3]">Transnational Film Producer</h4>
-            <p className="font-sans text-[13px] text-[#d0c5af] leading-relaxed">
+          <div className="p-5 sm:p-6 bg-[#0f0e0c] border border-[#2e2617] hover:border-[#d4af37]/60 space-y-3 rounded-xl transition-all shadow-md group">
+            <div className="w-11 h-11 rounded-lg bg-[#1a1712] border border-[#3e3422] flex items-center justify-center text-[#e9c176] group-hover:border-[#f2ca50] transition-colors">
+              <Globe className="w-5 h-5 text-[#e9c176]" />
+            </div>
+            <h4 className="font-['Cinzel'] text-[16px] sm:text-[17px] text-[#f4efe6] font-medium leading-snug">
+              Transnational Film Producer
+            </h4>
+            <p className="font-['Montserrat'] text-[12px] sm:text-[12.5px] text-[#b8ad96] font-light leading-relaxed">
               Accredited member of the International Producers Association, with selections across Cannes Marché, Venice, and Toronto.
             </p>
           </div>
 
-          <div className="p-6 bg-[#0e0e0f] border border-[#4d4635] space-y-3 rounded">
-            <ShieldCheck className="w-8 h-8 text-[#ffdea5]" />
-            <h4 className="font-serif text-[18px] text-[#e5e2e3]">National Council President</h4>
-            <p className="font-sans text-[13px] text-[#d0c5af] leading-relaxed">
+          <div className="p-5 sm:p-6 bg-[#0f0e0c] border border-[#2e2617] hover:border-[#d4af37]/60 space-y-3 rounded-xl transition-all shadow-md group">
+            <div className="w-11 h-11 rounded-lg bg-[#1a1712] border border-[#3e3422] flex items-center justify-center text-[#ffdea5] group-hover:border-[#f2ca50] transition-colors">
+              <ShieldCheck className="w-5 h-5 text-[#ffdea5]" />
+            </div>
+            <h4 className="font-['Cinzel'] text-[16px] sm:text-[17px] text-[#f4efe6] font-medium leading-snug">
+              National Council President
+            </h4>
+            <p className="font-['Montserrat'] text-[12px] sm:text-[12.5px] text-[#b8ad96] font-light leading-relaxed">
               Leading the statutory civic mandate for grassroots empowerment, enterprise grants, and boardroom diversity governance.
             </p>
           </div>
@@ -372,31 +388,35 @@ export const AboutScreen: React.FC<AboutScreenProps> = ({ onOpenCollaborate }) =
       </section>
 
       {/* Diplomatic Timeline */}
-      <section className="space-y-10">
+      <section className="space-y-8 sm:space-y-10">
         <div className="max-w-2xl space-y-2">
-          <span className="font-sans text-[11px] font-semibold text-[#f2ca50] tracking-[0.25em] uppercase">
-            Historical Trajectory
-          </span>
-          <h2 className="font-serif text-[32px] sm:text-[38px] text-[#e5e2e3]">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1f1a14] border border-[#d4af37]/40 text-[#f2ca50] text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.22em] rounded-full shadow-sm">
+            <Sparkles className="w-3 h-3 text-[#f2ca50]" />
+            <span>Historical Trajectory</span>
+          </div>
+          <h2 className="font-['Cinzel'] text-[24px] sm:text-[32px] lg:text-[38px] font-normal text-[#f4efe6] leading-tight tracking-tight">
             Timeline of Mandates &amp; Appointments
           </h2>
+          <p className="font-['Montserrat'] text-[12.5px] sm:text-[13.5px] text-[#c8beaa] font-light leading-relaxed">
+            Chronological appointments across diplomatic corridors, cinematic productions, and national civic mandates.
+          </p>
         </div>
 
-        <div className="relative border-l border-[#4d4635] ml-4 sm:ml-8 space-y-12 pl-6 sm:pl-10">
+        <div className="relative border-l border-[#3e3422] ml-2 sm:ml-6 space-y-10 pl-5 sm:pl-8">
           {TIMELINE_EVENTS.map((event, idx) => (
             <div key={idx} className="relative group">
-              <div className="absolute -left-[31px] sm:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-[#131314] border-2 border-[#f2ca50] group-hover:bg-[#f2ca50] transition-colors"></div>
+              <div className="absolute -left-[27px] sm:-left-[39px] top-1.5 w-3.5 h-3.5 rounded-full bg-[#11100e] border-2 border-[#f2ca50] group-hover:bg-[#f2ca50] transition-colors shadow-[0_0_8px_rgba(242,202,80,0.4)]"></div>
               <div className="space-y-1.5">
-                <span className="font-sans text-[11px] font-bold text-[#f2ca50] tracking-widest uppercase">
+                <span className="inline-block font-mono text-[9.5px] font-bold text-[#f2ca50] bg-[#1a1712] border border-[#d4af37]/40 px-2.5 py-0.5 rounded tracking-wider uppercase">
                   {event.year}
                 </span>
-                <h3 className="font-serif text-[22px] text-[#e5e2e3]">
+                <h3 className="font-['Cinzel'] text-[18px] sm:text-[20px] text-[#f4efe6] font-normal leading-snug">
                   {event.title}
                 </h3>
-                <span className="font-sans text-[13px] text-[#e9c176] block">
+                <span className="font-['Montserrat'] text-[12px] sm:text-[13px] text-[#e9c176] font-medium block">
                   {event.entity}
                 </span>
-                <p className="font-sans text-[14px] text-[#d0c5af] max-w-2xl leading-relaxed pt-1">
+                <p className="font-['Montserrat'] text-[12.5px] sm:text-[13.5px] text-[#b8ad96] font-light max-w-2xl leading-relaxed pt-0.5">
                   {event.description}
                 </p>
               </div>

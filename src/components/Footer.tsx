@@ -33,7 +33,7 @@ export const Footer: React.FC<FooterProps> = ({
   };
 
   return (
-    <footer className="w-full bg-[#0e0e0f] border-t border-[#4d4635]/30 pt-16 pb-12 text-[#d0c5af]">
+    <footer className="w-full bg-[#0e0e0f] border-t border-[#4d4635]/30 pt-16 pb-32 sm:pb-16 text-[#d0c5af]">
       <div className="max-w-[1440px] mx-auto px-5 lg:px-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 mb-16">
           {/* Column 1: Sovereign Identity */}
@@ -187,74 +187,84 @@ export const Footer: React.FC<FooterProps> = ({
             </p>
 
             {subscribed ? (
-              <div className="p-3 bg-[#1c1b1c] border border-[#f2ca50]/50 text-[#f2ca50] flex items-center gap-2 text-[13px]">
+              <div className="p-3.5 bg-[#1a1712] border border-[#f2ca50]/60 text-[#f2ca50] flex items-center gap-2.5 text-[12.5px] rounded-lg shadow-inner">
                 <CheckCircle2 className="w-4 h-4 text-[#f2ca50] shrink-0" />
                 <span>Executive Gazette dispatched. Email authenticated.</span>
               </div>
             ) : (
-              <form onSubmit={handleSubscribe} className="flex items-stretch border-b border-[#4d4635] focus-within:border-[#f2ca50] transition-colors">
+              <form onSubmit={handleSubscribe} className="flex items-center bg-[#14120f] border border-[#3e3422] rounded-lg p-1 focus-within:border-[#f2ca50] transition-colors shadow-inner">
                 <input
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-transparent py-3 text-[13px] text-[#e5e2e3] placeholder:text-[#99907c] focus:outline-none"
+                  className="w-full bg-transparent px-3 py-2 text-[12.5px] text-[#e5e2e3] placeholder:text-[#8c826e] focus:outline-none"
                   placeholder="Enter institutional or diplomatic email"
                   type="email"
                   required
                 />
                 <button
-                  className="px-4 py-3 text-[#f2ca50] hover:text-[#ffe088] uppercase font-sans text-[11px] font-semibold tracking-wider cursor-pointer"
+                  className="px-3.5 py-2 bg-gradient-to-r from-[#d4af37] to-[#f2ca50] hover:from-[#ffe088] text-[#141002] rounded-md font-['Montserrat'] text-[10px] font-bold uppercase tracking-wider cursor-pointer transition-all shadow-xs flex items-center justify-center shrink-0"
                   type="submit"
                   aria-label="Subscribe to Gazette"
                 >
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </form>
             )}
 
-            <div className="flex items-center gap-4 pt-2 text-[#d0c5af]">
-              <a href="#globe" title="Global Chancery" className="hover:text-[#f2ca50] transition-colors">
-                <Globe className="w-5 h-5" />
-              </a>
-              <a href="#telegram" title="Encrypted Telegram" className="hover:text-[#f2ca50] transition-colors">
-                <Send className="w-5 h-5" />
-              </a>
-              <a href="#announcements" title="Diplomatic Announcements" className="hover:text-[#f2ca50] transition-colors">
-                <Radio className="w-5 h-5" />
-              </a>
-              <a href="#podcasts" title="Diplomatic Broadcasts" className="hover:text-[#f2ca50] transition-colors">
-                <Podcast className="w-5 h-5" />
-              </a>
+            {/* Diplomatic Transmission Channels */}
+            <div className="flex items-center gap-2.5 pt-2 text-[#d0c5af]">
+              {[
+                { icon: Globe, label: 'Global Chancery', href: '#globe' },
+                { icon: Send, label: 'Encrypted Telegram', href: '#telegram' },
+                { icon: Radio, label: 'Diplomatic Announcements', href: '#announcements' },
+                { icon: Podcast, label: 'Diplomatic Broadcasts', href: '#podcasts' },
+              ].map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <a
+                    key={idx}
+                    href={item.href}
+                    title={item.label}
+                    className="w-8 h-8 rounded-lg bg-[#161410] border border-[#362e1d] hover:border-[#f2ca50] flex items-center justify-center text-[#c8beaa] hover:text-[#f2ca50] hover:bg-[#201c15] transition-all shadow-xs"
+                  >
+                    <Icon className="w-4 h-4" />
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-[#4d4635]/20 flex flex-col md:flex-row items-center justify-between gap-4 font-sans text-[13px]">
-          <div className="flex flex-wrap items-center gap-3 text-[#d0c5af]">
-            <span className="flex items-center gap-1.5 text-[#d0c5af]">
-              <ShieldCheck className="w-4 h-4 text-[#f2ca50]" />
-              256-Bit TLS Diplomatic Encryption Verified
+        {/* Bottom Bar - Flawless Responsive Alignment on all screens */}
+        <div className="pt-8 border-t border-[#3e3422]/60 flex flex-col md:flex-row items-center justify-between gap-5 font-['Montserrat'] text-[12px] pb-6 sm:pb-0">
+          <div className="flex flex-col sm:flex-row items-center text-center sm:text-left gap-2 sm:gap-3 text-[#b5aa96]">
+            <span className="flex items-center gap-1.5 text-[#d4af37] font-semibold text-[11px] uppercase tracking-wider">
+              <ShieldCheck className="w-4 h-4 text-[#f2ca50] shrink-0" />
+              256-Bit TLS Diplomatic Encryption
             </span>
-            <span>•</span>
-            <span>Office of Zeenat Kureshi © 2026. All Rights Reserved.</span>
+            <span className="hidden sm:inline text-[#4d4635]">•</span>
+            <span className="text-[11.5px] text-[#9e9482]">Office of Zeenat Kureshi © 2026. All Rights Reserved.</span>
           </div>
 
-          <div className="flex items-center gap-6 font-sans text-[11px] font-semibold tracking-[0.18em] uppercase">
+          {/* Legal Protocol Links - Symmetrical, never awkward wrapping */}
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 font-['Montserrat'] text-[10px] sm:text-[11px] font-semibold tracking-[0.14em] sm:tracking-[0.16em] uppercase">
             <button
               onClick={() => setActiveModal('privacy')}
-              className="hover:text-[#f2ca50] transition-colors cursor-pointer"
+              className="px-2.5 py-1 rounded bg-[#161410] sm:bg-transparent border border-[#3e3422] sm:border-transparent text-[#c8beaa] hover:text-[#f2ca50] transition-colors cursor-pointer whitespace-nowrap"
             >
               Protocol &amp; Privacy
             </button>
+            <span className="hidden sm:inline text-[#3e3422]">•</span>
             <button
               onClick={() => setActiveModal('terms')}
-              className="hover:text-[#f2ca50] transition-colors cursor-pointer"
+              className="px-2.5 py-1 rounded bg-[#161410] sm:bg-transparent border border-[#3e3422] sm:border-transparent text-[#c8beaa] hover:text-[#f2ca50] transition-colors cursor-pointer whitespace-nowrap"
             >
               Terms of Mandate
             </button>
+            <span className="hidden sm:inline text-[#3e3422]">•</span>
             <button
               onClick={() => setActiveModal('accreditations')}
-              className="hover:text-[#f2ca50] transition-colors cursor-pointer"
+              className="px-2.5 py-1 rounded bg-[#161410] sm:bg-transparent border border-[#3e3422] sm:border-transparent text-[#c8beaa] hover:text-[#f2ca50] transition-colors cursor-pointer whitespace-nowrap"
             >
               Accreditations
             </button>

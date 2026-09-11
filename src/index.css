@@ -103,12 +103,33 @@
 .card-3d-hover {
   transform-style: preserve-3d;
   perspective: 1000px;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
 .card-3d-hover:hover {
   transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(242, 202, 80, 0.12);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.85), 0 0 24px rgba(242, 202, 80, 0.18);
+}
+
+/* 3D Glassmorphic Surface Lighting */
+.glass-3d-panel {
+  background: linear-gradient(145deg, rgba(28, 25, 19, 0.95), rgba(14, 13, 11, 0.98));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(242, 202, 80, 0.2);
+}
+
+/* 3D Gold Action Shimmer */
+.btn-gold-3d {
+  background: linear-gradient(135deg, #d4af37 0%, #f2ca50 50%, #e6bc48 100%);
+  box-shadow: 0 4px 18px rgba(212, 175, 55, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-gold-3d:hover {
+  background: linear-gradient(135deg, #ffe088 0%, #f2ca50 50%, #d4af37 100%);
+  box-shadow: 0 6px 24px rgba(242, 202, 80, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
 }
 
 ::-webkit-scrollbar { width: 5px; height: 5px; }

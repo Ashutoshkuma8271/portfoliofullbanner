@@ -33,74 +33,89 @@ export const TradeScreen: React.FC<TradeScreenProps> = ({ onOpenCollaborate, onO
   };
 
   return (
-    <div className="w-full bg-[#131314] text-[#e5e2e3] py-16 px-5 lg:px-20 max-w-[1440px] mx-auto space-y-20">
+    <div className="w-full bg-[#11100e] text-[#e5e2e3] py-10 sm:py-16 px-4 sm:px-6 lg:px-20 max-w-[1440px] mx-auto space-y-14 sm:space-y-20">
       {/* Header Monograph */}
       <section className="max-w-3xl space-y-3">
         <div className="space-y-1.5">
-          <span className="font-sans text-[10px] font-semibold text-[#f2ca50] tracking-[0.25em] uppercase block">
-            Bilateral Economic Diplomacy
-          </span>
-          <h1 className="font-serif text-[30px] sm:text-[38px] lg:text-[44px] font-normal leading-tight text-[#e5e2e3]">
-            GCC–India Trade &amp; <span className="italic text-[#f2ca50]">Sovereign FDI</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1f1a14] border border-[#d4af37]/40 text-[#f2ca50] text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.22em] rounded-full shadow-sm">
+            <span>Bilateral Economic Diplomacy</span>
+          </div>
+          <h1 className="font-['Cinzel'] text-[26px] sm:text-[36px] lg:text-[44px] font-normal leading-tight text-[#f4efe6]">
+            GCC–India Trade &amp; <span className="italic font-serif text-[#f2ca50]">Sovereign FDI</span>
           </h1>
         </div>
-        <p className="font-sans text-[14px] text-[#d0c5af] leading-relaxed">
+        <p className="font-['Montserrat'] text-[12.5px] sm:text-[14px] text-[#c8beaa] font-light leading-relaxed">
           Architecting state-level economic conduits across the UAE, Kingdom of Saudi Arabia, Qatar, and the Republic of India. Facilitating bilateral investments exceeding $450M in sustainable infrastructure, creative economy, and industrial corridors.
         </p>
       </section>
 
       {/* Corridor Key Stats */}
-      <section className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 p-6 sm:p-7 bg-[#1c1b1c] border border-[#4d4635] rounded-lg">
-        <div className="space-y-0.5">
-          <span className="font-serif text-[28px] sm:text-[32px] text-[#f2ca50] block font-light leading-none">$450M+</span>
-          <span className="font-sans text-[10px] font-semibold text-[#d0c5af] uppercase tracking-wider">Syndicated Bilateral Flow</span>
+      <section className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 p-4 sm:p-7 bg-[#161410] border border-[#3e3422] rounded-2xl shadow-xl">
+        <div className="space-y-1 border-r border-[#2e2617] pr-2 sm:pr-4">
+          <span className="font-['Cinzel'] text-[24px] sm:text-[30px] lg:text-[34px] text-[#f2ca50] block font-semibold leading-none">$450M+</span>
+          <span className="font-['Montserrat'] text-[8.5px] sm:text-[10px] font-semibold text-[#b5aa96] uppercase tracking-[0.14em] sm:tracking-[0.18em]">Syndicated Flow</span>
         </div>
-        <div className="space-y-0.5">
-          <span className="font-serif text-[28px] sm:text-[32px] text-[#e9c176] block font-light leading-none">18</span>
-          <span className="font-sans text-[10px] font-semibold text-[#d0c5af] uppercase tracking-wider">Ministerial Trade Missions</span>
+        <div className="space-y-1 md:border-r border-[#2e2617] pr-2 sm:pr-4">
+          <span className="font-['Cinzel'] text-[24px] sm:text-[30px] lg:text-[34px] text-[#e9c176] block font-semibold leading-none">18+</span>
+          <span className="font-['Montserrat'] text-[8.5px] sm:text-[10px] font-semibold text-[#b5aa96] uppercase tracking-[0.14em] sm:tracking-[0.18em]">Trade Missions</span>
         </div>
-        <div className="space-y-0.5">
-          <span className="font-serif text-[28px] sm:text-[32px] text-[#f2ca50] block font-light leading-none">42</span>
-          <span className="font-sans text-[10px] font-semibold text-[#d0c5af] uppercase tracking-wider">Enterprises Inward FDI</span>
+        <div className="space-y-1 border-r border-[#2e2617] pr-2 sm:pr-4 pt-2 md:pt-0">
+          <span className="font-['Cinzel'] text-[24px] sm:text-[30px] lg:text-[34px] text-[#f2ca50] block font-semibold leading-none">42+</span>
+          <span className="font-['Montserrat'] text-[8.5px] sm:text-[10px] font-semibold text-[#b5aa96] uppercase tracking-[0.14em] sm:tracking-[0.18em]">Enterprises FDI</span>
         </div>
-        <div className="space-y-0.5">
-          <span className="font-serif text-[28px] sm:text-[32px] text-[#e9c176] block font-light leading-none">3</span>
-          <span className="font-sans text-[10px] font-semibold text-[#d0c5af] uppercase tracking-wider">Sovereign Free Zone Hubs</span>
+        <div className="space-y-1 pt-2 md:pt-0">
+          <span className="font-['Cinzel'] text-[24px] sm:text-[30px] lg:text-[34px] text-[#e9c176] block font-semibold leading-none">3</span>
+          <span className="font-['Montserrat'] text-[8.5px] sm:text-[10px] font-semibold text-[#b5aa96] uppercase tracking-[0.14em] sm:tracking-[0.18em]">Free Zone Hubs</span>
         </div>
       </section>
 
       {/* Market Entry Support & Strategic Advisory Services (Specified in requirements) */}
-      <section className="space-y-8">
-        <div className="space-y-2 border-b border-[#4d4635]/40 pb-4">
-          <span className="font-sans text-[11px] font-semibold text-[#f2ca50] tracking-widest uppercase block">
-            Strategic Advisory Services
-          </span>
-          <h2 className="font-serif text-[28px] sm:text-[34px] text-[#e5e2e3]">
-            Market Entry Support &amp; Sovereign Conduit Advisory
+      <section className="space-y-6 sm:space-y-8">
+        <div className="space-y-2 border-b border-[#2e2617] pb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1f1a14] border border-[#d4af37]/40 text-[#f2ca50] text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.22em] rounded-full shadow-sm">
+            <span>Strategic Advisory Services</span>
+          </div>
+          <h2 className="font-['Cinzel'] text-[24px] sm:text-[32px] lg:text-[38px] font-normal text-[#f4efe6] leading-tight tracking-tight">
+            Market Entry &amp; Sovereign Conduit Advisory
           </h2>
+          <p className="font-['Montserrat'] text-[12.5px] sm:text-[13.5px] text-[#c8beaa] font-light leading-relaxed">
+            End-to-end statutory representation, cross-border corporate incorporation, and bilateral sovereign clearances.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="p-6 bg-[#1c1b1c] border border-[#4d4635] rounded-lg space-y-3">
-            <Landmark className="w-8 h-8 text-[#f2ca50]" />
-            <h3 className="font-serif text-[20px] text-[#e5e2e3]">Free Zone &amp; Regulatory Setup</h3>
-            <p className="font-sans text-[13px] text-[#d0c5af] leading-relaxed">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+          <div className="p-5 sm:p-6 bg-[#161410] border border-[#2e2617] hover:border-[#d4af37]/60 rounded-xl space-y-3 transition-all shadow-md group">
+            <div className="w-11 h-11 rounded-lg bg-[#1a1712] border border-[#3e3422] flex items-center justify-center text-[#f2ca50] group-hover:border-[#f2ca50] transition-colors">
+              <Landmark className="w-5 h-5 text-[#f2ca50]" />
+            </div>
+            <h3 className="font-['Cinzel'] text-[16px] sm:text-[18px] text-[#f4efe6] font-medium leading-snug">
+              Free Zone &amp; Regulatory Setup
+            </h3>
+            <p className="font-['Montserrat'] text-[12px] sm:text-[13px] text-[#b8ad96] font-light leading-relaxed">
               Expedited licensing and governance onboarding across Dubai DIFC, Abu Dhabi ADGM, Saudi SAGIA/MISA, and GIFT City India.
             </p>
           </div>
 
-          <div className="p-6 bg-[#1c1b1c] border border-[#4d4635] rounded-lg space-y-3">
-            <TrendingUp className="w-8 h-8 text-[#e9c176]" />
-            <h3 className="font-serif text-[20px] text-[#e5e2e3]">Cross-Border Capital Structuring</h3>
-            <p className="font-sans text-[13px] text-[#d0c5af] leading-relaxed">
+          <div className="p-5 sm:p-6 bg-[#161410] border border-[#2e2617] hover:border-[#d4af37]/60 rounded-xl space-y-3 transition-all shadow-md group">
+            <div className="w-11 h-11 rounded-lg bg-[#1a1712] border border-[#3e3422] flex items-center justify-center text-[#e9c176] group-hover:border-[#f2ca50] transition-colors">
+              <TrendingUp className="w-5 h-5 text-[#e9c176]" />
+            </div>
+            <h3 className="font-['Cinzel'] text-[16px] sm:text-[18px] text-[#f4efe6] font-medium leading-snug">
+              Cross-Border Capital Structuring
+            </h3>
+            <p className="font-['Montserrat'] text-[12px] sm:text-[13px] text-[#b8ad96] font-light leading-relaxed">
               Structuring tax-optimized FDI syndications, institutional SPVs, and sovereign wealth fund co-investment arrangements.
             </p>
           </div>
 
-          <div className="p-6 bg-[#1c1b1c] border border-[#4d4635] rounded-lg space-y-3">
-            <ShieldAlert className="w-8 h-8 text-[#ffdea5]" />
-            <h3 className="font-serif text-[20px] text-[#e5e2e3]">Ministerial Protocol &amp; Delegations</h3>
-            <p className="font-sans text-[13px] text-[#d0c5af] leading-relaxed">
+          <div className="p-5 sm:p-6 bg-[#161410] border border-[#2e2617] hover:border-[#d4af37]/60 rounded-xl space-y-3 transition-all shadow-md group">
+            <div className="w-11 h-11 rounded-lg bg-[#1a1712] border border-[#3e3422] flex items-center justify-center text-[#ffdea5] group-hover:border-[#f2ca50] transition-colors">
+              <ShieldAlert className="w-5 h-5 text-[#ffdea5]" />
+            </div>
+            <h3 className="font-['Cinzel'] text-[16px] sm:text-[18px] text-[#f4efe6] font-medium leading-snug">
+              Ministerial Protocol &amp; Delegations
+            </h3>
+            <p className="font-['Montserrat'] text-[12px] sm:text-[13px] text-[#b8ad96] font-light leading-relaxed">
               Bilateral governmental audiences, high-level diplomatic clearances, and participation in official bilateral trade roundtables.
             </p>
           </div>
@@ -108,13 +123,13 @@ export const TradeScreen: React.FC<TradeScreenProps> = ({ onOpenCollaborate, onO
       </section>
 
       {/* Trade Initiatives Detail Selector */}
-      <section className="space-y-8">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 border-b border-[#4d4635]/40 pb-4">
-          <div>
-            <span className="font-sans text-[11px] font-semibold text-[#f2ca50] tracking-widest uppercase block">
-              Active Frameworks
-            </span>
-            <h2 className="font-serif text-[28px] sm:text-[34px] text-[#e5e2e3]">
+      <section className="space-y-6 sm:space-y-8">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 border-b border-[#2e2617] pb-4">
+          <div className="space-y-1.5">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1f1a14] border border-[#d4af37]/40 text-[#f2ca50] text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.22em] rounded-full shadow-sm">
+              <span>Active Frameworks</span>
+            </div>
+            <h2 className="font-['Cinzel'] text-[24px] sm:text-[32px] lg:text-[38px] font-normal text-[#f4efe6] leading-tight tracking-tight">
               Bilateral Corridors &amp; Investment Protocols
             </h2>
           </div>
@@ -123,7 +138,7 @@ export const TradeScreen: React.FC<TradeScreenProps> = ({ onOpenCollaborate, onO
               const formEl = document.getElementById('structured-inquiry');
               if (formEl) formEl.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="px-6 py-2.5 bg-gradient-to-r from-[#d4af37] to-[#f2ca50] text-[#1a1402] font-sans text-[11px] font-bold tracking-widest uppercase hover:from-[#ffe088] transition-all cursor-pointer shadow-md rounded"
+            className="w-full sm:w-auto px-5 py-2.5 bg-gradient-to-r from-[#d4af37] to-[#f2ca50] text-[#1a1402] font-['Montserrat'] text-[10px] font-bold tracking-widest uppercase hover:brightness-110 transition-all cursor-pointer shadow-md rounded-lg text-center"
           >
             Structured Trade Inquiry
           </button>
@@ -228,17 +243,17 @@ export const TradeScreen: React.FC<TradeScreenProps> = ({ onOpenCollaborate, onO
       </section>
 
       {/* Structured Inquiry Form (Specified in requirements: ticket size, objective, region) */}
-      <section id="structured-inquiry" className="bg-[#1c1b1c] border border-[#d4af37]/40 rounded-xl p-8 lg:p-14 space-y-8 shadow-2xl">
+      <section id="structured-inquiry" className="bg-[#161410] border border-[#d4af37]/40 rounded-2xl p-5 sm:p-8 lg:p-12 space-y-6 sm:space-y-8 shadow-2xl">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div className="max-w-2xl space-y-2">
-            <div className="inline-flex items-center gap-2 text-[#f2ca50] text-[11px] font-bold uppercase tracking-[0.25em]">
-              <Building className="w-4 h-4" />
-              Institutional Intake
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1f1a14] border border-[#d4af37]/40 text-[#f2ca50] text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.22em] rounded-full shadow-sm">
+              <Building className="w-3.5 h-3.5" />
+              <span>Institutional Intake</span>
             </div>
-            <h2 className="font-serif text-[32px] sm:text-[38px] text-[#e5e2e3]">
+            <h2 className="font-['Cinzel'] text-[24px] sm:text-[32px] lg:text-[38px] font-normal text-[#f4efe6] leading-tight tracking-tight">
               Structured Trade &amp; Investment Inquiry
             </h2>
-            <p className="font-sans text-[14px] text-[#d0c5af]">
+            <p className="font-['Montserrat'] text-[12.5px] sm:text-[13.5px] text-[#c8beaa] font-light leading-relaxed">
               Submit detailed ticket metrics for confidential sovereign wealth syndication, cross-border market entry, or trade mission accreditation.
             </p>
           </div>
@@ -246,10 +261,10 @@ export const TradeScreen: React.FC<TradeScreenProps> = ({ onOpenCollaborate, onO
           {onOpenInvestorLead && (
             <button
               onClick={onOpenInvestorLead}
-              className="inline-flex items-center gap-2 px-5 py-3 rounded bg-[#0b0a09] border border-[#d4af37]/60 hover:border-[#f2ca50] text-[#f2ca50] font-sans text-[11px] font-bold tracking-widest uppercase transition-all shadow-md shrink-0 cursor-pointer hover:bg-[#1a1712]"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-[#0b0a09] border border-[#d4af37]/60 hover:border-[#f2ca50] text-[#f2ca50] font-['Montserrat'] text-[10px] sm:text-[10.5px] font-bold tracking-widest uppercase transition-all shadow-md shrink-0 cursor-pointer hover:bg-[#1a1712]"
             >
               <TrendingUp className="w-3.5 h-3.5" />
-              Investor Qualification Form
+              <span>Investor Qualification Form</span>
             </button>
           )}
         </div>

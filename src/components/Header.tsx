@@ -18,14 +18,14 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const navItems: { id: TabId; label: string; mobileLabel: string }[] = [
-    { id: 'home', label: 'HOME', mobileLabel: 'Home' },
-    { id: 'about-zeenat', label: 'ABOUT', mobileLabel: 'About Zeenat' },
-    { id: 'trade-investment', label: 'TRADE & FDI', mobileLabel: 'Trade & Investment' },
-    { id: 'media-press', label: 'MEDIA & PRESS', mobileLabel: 'Media & Press' },
-    { id: 'women-leadership', label: 'WOMEN LEADERSHIP', mobileLabel: 'Women Leadership' },
-    { id: 'blog', label: 'INSIGHTS', mobileLabel: 'Insights & Blog' },
-    { id: 'contact', label: 'CONTACT', mobileLabel: 'Contact' },
+  const navItems: { id: TabId; label: string }[] = [
+    { id: 'home', label: 'HOME' },
+    { id: 'about-zeenat', label: 'ABOUT' },
+    { id: 'trade-investment', label: 'TRADE & FDI' },
+    { id: 'media-press', label: 'MEDIA & PRESS' },
+    { id: 'women-leadership', label: 'WOMEN LEADERSHIP' },
+    { id: 'blog', label: 'INSIGHTS' },
+    { id: 'contact', label: 'CONTACT' },
   ];
 
   const handleNavClick = (tab: TabId) => {
@@ -81,7 +81,7 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
         </div>
 
-        {/* Desktop Navigation Links with Glowing Gold Active Pill - Refined & Readable Font Size */}
+        {/* Desktop Navigation Links with Glowing Gold Active Pill */}
         <nav className="hidden lg:flex items-center gap-1 xl:gap-2.5 2xl:gap-3.5 shrink-0">
           {navItems.map((item) => {
             const isActive = activeTab === item.id;
@@ -140,7 +140,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Mobile Menu Trigger - Always Visible & Beautifully Styled */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-[#161410] border border-[#d4af37]/50 hover:border-[#f2ca50] text-[#f2ca50] hover:text-white transition-all cursor-pointer shadow-sm active:scale-95 shrink-0"
+            className="lg:hidden flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[#161410] border border-[#d4af37]/50 hover:border-[#f2ca50] text-[#f2ca50] hover:text-white transition-all cursor-pointer shadow-sm active:scale-95 shrink-0"
             aria-label="Toggle Navigation Menu"
           >
             {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
@@ -149,34 +149,41 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
       </div>
 
-      {/* Mobile Menu Drawer */}
+      {/* Mobile Menu Drawer - Unified 100% with Laptop/Desktop Navbar */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#0e0d0b] border-b border-[#3a3222] px-5 py-5 space-y-4 animate-in slide-in-from-top-4 duration-200 shadow-2xl">
-          <div className="flex flex-col space-y-2 pb-3 border-b border-[#2e271a]">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => handleNavClick(item.id)}
-                className={`text-left py-2 px-3 rounded font-['Montserrat'] text-[12px] uppercase tracking-[0.18em] cursor-pointer transition-colors flex items-center justify-between ${
-                  activeTab === item.id ? 'text-[#f2ca50] font-bold bg-[#1a1712]' : 'text-[#c8beaa] hover:text-white hover:bg-[#14120f]'
-                }`}
-              >
-                <span>{item.mobileLabel}</span>
-                {activeTab === item.id && <span className="w-1.5 h-1.5 rounded-full bg-[#f2ca50]"></span>}
-              </button>
-            ))}
+        <div className="lg:hidden bg-[#0a0907]/98 backdrop-blur-2xl border-b border-[#3e3422] px-4 sm:px-6 py-5 space-y-4 animate-in slide-in-from-top-3 duration-200 shadow-[0_25px_60px_rgba(0,0,0,0.95)]">
+          <div className="flex flex-col space-y-1.5 pb-3 border-b border-[#2e2617]">
+            {navItems.map((item) => {
+              const isActive = activeTab === item.id;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => handleNavClick(item.id)}
+                  className={`text-left py-2.5 px-3.5 rounded-xl font-['Montserrat'] text-[11px] font-bold uppercase tracking-[0.16em] cursor-pointer transition-all duration-200 flex items-center justify-between ${
+                    isActive
+                      ? 'text-[#f2ca50] bg-gradient-to-r from-[#231e13] via-[#1a160d] to-[#12100a] border border-[#f2ca50] shadow-[0_0_16px_rgba(242,202,80,0.3)]'
+                      : 'text-[#c8beaa] hover:text-[#f4efe6] hover:bg-[#161410] border border-transparent'
+                  }`}
+                >
+                  <span>{item.label}</span>
+                  {isActive && (
+                    <span className="w-2 h-2 rounded-full bg-[#f2ca50] shadow-[0_0_8px_#f2ca50] animate-pulse"></span>
+                  )}
+                </button>
+              );
+            })}
           </div>
 
-          <div className="pt-1 space-y-2.5">
+          <div className="pt-1 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
                 onOpenCollaborate('collaborate');
               }}
-              className="w-full py-2.5 bg-gradient-to-r from-[#d4af37] to-[#f2ca50] text-[#1a1402] text-center font-['Montserrat'] text-[10px] font-bold uppercase tracking-[0.18em] hover:brightness-110 transition-colors rounded shadow-sm flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full py-3 bg-gradient-to-r from-[#d4af37] via-[#f2ca50] to-[#e6bc48] text-[#141002] text-center font-['Montserrat'] text-[10px] font-bold uppercase tracking-[0.16em] hover:brightness-110 transition-all rounded-lg shadow-lg flex items-center justify-center gap-2 cursor-pointer border border-[#f2ca50]"
             >
-              <Handshake className="w-3.5 h-3.5" />
-              Collaborate
+              <Handshake className="w-3.5 h-3.5 text-[#141002]" />
+              <span>Collaborate</span>
             </button>
 
             <button
@@ -184,10 +191,10 @@ export const Header: React.FC<HeaderProps> = ({
                 setMobileMenuOpen(false);
                 onOpenVipPortal();
               }}
-              className="w-full py-2.5 bg-[#171512] border border-[#443a27] text-[#c8beaa] text-center font-['Montserrat'] text-[10px] font-bold uppercase tracking-[0.18em] hover:text-[#f2ca50] transition-colors rounded flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full py-3 bg-[#14120f] border border-[#d4af37]/60 text-[#f2ca50] text-center font-['Montserrat'] text-[10px] font-bold uppercase tracking-[0.16em] hover:border-[#f2ca50] hover:bg-[#1c1812] transition-all rounded-lg flex items-center justify-center gap-2 cursor-pointer shadow-md"
             >
               <Lock className="w-3 h-3 text-[#f2ca50]" />
-              VIP Access Portal
+              <span>VIP Access Portal</span>
             </button>
           </div>
         </div>

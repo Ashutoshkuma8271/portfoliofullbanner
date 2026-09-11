@@ -35,18 +35,18 @@ export const BlogScreen: React.FC<BlogScreenProps> = ({ onOpenCollaborate }) => 
   };
 
   return (
-    <div className="w-full bg-[#131314] text-[#e5e2e3] py-16 px-5 lg:px-20 max-w-[1440px] mx-auto space-y-16">
+    <div className="w-full bg-[#11100e] text-[#e5e2e3] py-10 sm:py-16 px-4 sm:px-6 lg:px-20 max-w-[1440px] mx-auto space-y-12 sm:space-y-16">
       {/* Header */}
-      <section className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 border-b border-[#4d4635]/40 pb-8">
-        <div className="max-w-3xl space-y-3">
-          <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-[#1c1b1c] border border-[#f2ca50]/40 text-[#f2ca50] text-[9.5px] sm:text-[10px] font-bold uppercase tracking-[0.2em] rounded">
+      <section className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-5 border-b border-[#2e2617] pb-6 sm:pb-8">
+        <div className="max-w-3xl space-y-2.5">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1f1a14] border border-[#d4af37]/40 text-[#f2ca50] text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.22em] rounded-full shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-[#f2ca50]" />
-            Executive Thought Leadership
+            <span>Executive Thought Leadership</span>
           </div>
           <h1 className="font-['Cinzel'] text-[24px] sm:text-[34px] lg:text-[42px] font-normal leading-tight text-[#f4efe6]">
             Insights, Bilateral Gazettes &amp; <span className="italic font-serif text-[#f2ca50]">Monographs</span>
           </h1>
-          <p className="font-sans text-[13px] sm:text-[14px] text-[#d0c5af] leading-relaxed max-w-2xl">
+          <p className="font-['Montserrat'] text-[12.5px] sm:text-[14px] text-[#c8beaa] font-light leading-relaxed max-w-2xl">
             In-depth strategic analyses, statecraft whitepapers, and cultural commentary covering GCC–India trade corridors, transnational cinematic co-productions, and civic governance.
           </p>
         </div>

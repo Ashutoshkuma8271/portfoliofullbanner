@@ -64,55 +64,58 @@ export const WomenLeadershipScreen: React.FC<WomenLeadershipScreenProps> = ({ on
   ];
 
   return (
-    <div className="w-full bg-[#131314] text-[#e5e2e3] py-16 px-5 lg:px-20 max-w-[1440px] mx-auto space-y-20">
+    <div className="w-full bg-[#11100e] text-[#e5e2e3] py-10 sm:py-16 px-4 sm:px-6 lg:px-20 max-w-[1440px] mx-auto space-y-14 sm:space-y-20">
       {/* Monograph Header with All India Jamiatul Quresh Women Cell Explicit Distinction */}
       <section className="max-w-4xl space-y-3">
-        <div className="space-y-1.5">
-          <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded bg-[#1c1b1c] border border-[#f2ca50]/40 text-[#f2ca50] text-[10px] font-bold uppercase tracking-[0.2em]">
-            <HeartHandshake className="w-3 h-3" />
-            Statutory Civic Mandate
+        <div className="space-y-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1f1a14] border border-[#d4af37]/40 text-[#f2ca50] text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.22em] rounded-full shadow-sm">
+            <HeartHandshake className="w-3.5 h-3.5" />
+            <span>Statutory Civic Mandate</span>
           </div>
-          <h1 className="font-serif text-[28px] sm:text-[36px] lg:text-[42px] font-normal leading-tight text-[#e5e2e3]">
-            All India Jamiatul Quresh <span className="italic text-[#f2ca50]">Women Cell</span>
+          <h1 className="font-['Cinzel'] text-[26px] sm:text-[36px] lg:text-[44px] font-normal leading-tight text-[#f4efe6]">
+            All India Jamiatul Quresh <span className="italic font-serif text-[#f2ca50]">Women Cell</span>
           </h1>
-          <span className="font-sans text-[12px] font-semibold tracking-wider text-[#e9c176] uppercase block">
+          <span className="font-['Montserrat'] text-[11px] sm:text-[12px] font-semibold tracking-wider text-[#e9c176] uppercase block">
             Office of the National President — Zeenat Kureshi
           </span>
         </div>
-        <p className="font-sans text-[14px] text-[#d0c5af] leading-relaxed">
+        <p className="font-['Montserrat'] text-[12.5px] sm:text-[14px] text-[#c8beaa] font-light leading-relaxed">
           Spearheading a transformative socioeconomic movement across India and the diaspora. Mobilizing grassroots financial independence, legal empowerment, vocational certifications, and executive boardroom inclusion for over 120,000 women.
         </p>
       </section>
 
       {/* Impact Numbers */}
-      <section className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 p-6 sm:p-7 bg-[#1c1b1c] border border-[#4d4635] rounded-lg shadow-xl">
-        <div className="space-y-0.5">
-          <span className="font-serif text-[28px] sm:text-[32px] text-[#f2ca50] block font-light leading-none">120K+</span>
-          <span className="font-sans text-[10px] font-semibold text-[#d0c5af] uppercase tracking-wider">Women Mobilized</span>
+      <section className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 p-4 sm:p-7 bg-[#161410] border border-[#3e3422] rounded-2xl shadow-xl">
+        <div className="space-y-1 border-r border-[#2e2617] pr-2 sm:pr-4">
+          <span className="font-['Cinzel'] text-[24px] sm:text-[30px] lg:text-[34px] text-[#f2ca50] block font-semibold leading-none">120K+</span>
+          <span className="font-['Montserrat'] text-[8.5px] sm:text-[10px] font-semibold text-[#b5aa96] uppercase tracking-[0.14em] sm:tracking-[0.18em]">Women Mobilized</span>
         </div>
-        <div className="space-y-0.5">
-          <span className="font-serif text-[28px] sm:text-[32px] text-[#e9c176] block font-light leading-none">4,200</span>
-          <span className="font-sans text-[10px] font-semibold text-[#d0c5af] uppercase tracking-wider">Enterprises Seed-Funded</span>
+        <div className="space-y-1 md:border-r border-[#2e2617] pr-2 sm:pr-4">
+          <span className="font-['Cinzel'] text-[24px] sm:text-[30px] lg:text-[34px] text-[#e9c176] block font-semibold leading-none">4,200</span>
+          <span className="font-['Montserrat'] text-[8.5px] sm:text-[10px] font-semibold text-[#b5aa96] uppercase tracking-[0.14em] sm:tracking-[0.18em]">Seed-Funded</span>
         </div>
-        <div className="space-y-0.5">
-          <span className="font-serif text-[28px] sm:text-[32px] text-[#f2ca50] block font-light leading-none">260+</span>
-          <span className="font-sans text-[10px] font-semibold text-[#d0c5af] uppercase tracking-wider">Corporate Charters</span>
+        <div className="space-y-1 border-r border-[#2e2617] pr-2 sm:pr-4 pt-2 md:pt-0">
+          <span className="font-['Cinzel'] text-[24px] sm:text-[30px] lg:text-[34px] text-[#f2ca50] block font-semibold leading-none">260+</span>
+          <span className="font-['Montserrat'] text-[8.5px] sm:text-[10px] font-semibold text-[#b5aa96] uppercase tracking-[0.14em] sm:tracking-[0.18em]">Corporate Charters</span>
         </div>
-        <div className="space-y-0.5">
-          <span className="font-serif text-[28px] sm:text-[32px] text-[#e9c176] block font-light leading-none">18</span>
-          <span className="font-sans text-[10px] font-semibold text-[#d0c5af] uppercase tracking-wider">Sovereign Conclaves</span>
+        <div className="space-y-1 pt-2 md:pt-0">
+          <span className="font-['Cinzel'] text-[24px] sm:text-[30px] lg:text-[34px] text-[#e9c176] block font-semibold leading-none">18+</span>
+          <span className="font-['Montserrat'] text-[8.5px] sm:text-[10px] font-semibold text-[#b5aa96] uppercase tracking-[0.14em] sm:tracking-[0.18em]">Sovereign Conclaves</span>
         </div>
       </section>
 
       {/* Mission & Core Initiatives (Specified in requirements) */}
-      <section className="space-y-8">
-        <div className="space-y-2 border-b border-[#4d4635]/40 pb-4">
-          <span className="font-sans text-[11px] font-semibold text-[#f2ca50] tracking-widest uppercase block">
-            Constitutional Mission
-          </span>
-          <h2 className="font-serif text-[28px] sm:text-[34px] text-[#e5e2e3]">
+      <section className="space-y-6 sm:space-y-8">
+        <div className="space-y-2 border-b border-[#2e2617] pb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1f1a14] border border-[#d4af37]/40 text-[#f2ca50] text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.22em] rounded-full shadow-sm">
+            <span>Constitutional Mission</span>
+          </div>
+          <h2 className="font-['Cinzel'] text-[24px] sm:text-[32px] lg:text-[38px] font-normal text-[#f4efe6] leading-tight tracking-tight">
             Mission &amp; Strategic Frameworks
           </h2>
+          <p className="font-['Montserrat'] text-[12.5px] sm:text-[13.5px] text-[#c8beaa] font-light leading-relaxed">
+            Statutory civic mandates for grassroots capital, legal protection, and boardroom parity.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

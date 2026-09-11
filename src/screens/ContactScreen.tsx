@@ -81,17 +81,17 @@ export const ContactScreen: React.FC = () => {
   };
 
   return (
-    <div className="w-full bg-[#131314] text-[#e5e2e3] py-16 px-5 lg:px-20 max-w-[1440px] mx-auto space-y-20">
+    <div className="w-full bg-[#11100e] text-[#e5e2e3] py-10 sm:py-16 px-4 sm:px-6 lg:px-20 max-w-[1440px] mx-auto space-y-14 sm:space-y-20">
       {/* Header */}
-      <section className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6">
-        <div className="max-w-3xl space-y-2">
-          <span className="font-sans text-[10px] font-semibold text-[#f2ca50] tracking-[0.25em] uppercase block">
-            Executive Chancery
-          </span>
-          <h1 className="font-serif text-[30px] sm:text-[38px] lg:text-[44px] font-normal leading-tight text-[#e5e2e3]">
-            Diplomatic &amp; Media <span className="italic text-[#f2ca50]">Chancery</span>
+      <section className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-5">
+        <div className="max-w-3xl space-y-2.5">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1f1a14] border border-[#d4af37]/40 text-[#f2ca50] text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.22em] rounded-full shadow-sm">
+            <span>Executive Protocol Desk</span>
+          </div>
+          <h1 className="font-['Cinzel'] text-[26px] sm:text-[36px] lg:text-[44px] font-normal leading-tight text-[#f4efe6]">
+            Diplomatic &amp; Media <span className="italic font-serif text-[#f2ca50]">Chancery</span>
           </h1>
-          <p className="font-sans text-[14px] text-[#d0c5af] leading-relaxed">
+          <p className="font-['Montserrat'] text-[12.5px] sm:text-[14px] text-[#c8beaa] font-light leading-relaxed">
             The Office of Zeenat Kureshi maintains accredited representation and diplomatic liaison desks across key global financial and governmental corridors.
           </p>
         </div>
@@ -101,14 +101,14 @@ export const ContactScreen: React.FC = () => {
           href="https://wa.me/?text=Hello%20Office%20of%20Zeenat%20Kureshi,%20I%20am%20transmitting%20an%20inquiry%20via%20ZeenatKureshi.com."
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-[#122416] border border-[#23582d] hover:border-[#38b04a] text-[#8ae899] hover:text-[#b4f6be] font-sans text-[12px] font-bold tracking-widest uppercase transition-all shadow-lg group"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-full bg-[#122416] border border-[#23582d] hover:border-[#38b04a] text-[#8ae899] hover:text-[#b4f6be] font-['Montserrat'] text-[10.5px] sm:text-[11px] font-bold tracking-widest uppercase transition-all shadow-lg group"
         >
-          <div className="relative flex h-3 w-3">
+          <div className="relative flex h-2.5 w-2.5">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#38b04a] opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-3 w-3 bg-[#38b04a]"></span>
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#38b04a]"></span>
           </div>
-          <MessageCircle className="w-5 h-5 text-[#38b04a] group-hover:scale-110 transition-transform" />
-          <span>Connect via Official WhatsApp</span>
+          <MessageCircle className="w-4 h-4 text-[#38b04a] group-hover:scale-110 transition-transform shrink-0" />
+          <span className="whitespace-nowrap">Official WhatsApp Protocol</span>
         </a>
       </section>
 

@@ -79,18 +79,19 @@ export const MediaPressScreen: React.FC<MediaPressScreenProps> = ({ onOpenMediaK
   ];
 
   return (
-    <div className="w-full bg-[#131314] text-[#e5e2e3] py-12 sm:py-16 px-4 sm:px-8 lg:px-20 max-w-[1440px] mx-auto space-y-12 sm:space-y-16">
+    <div className="w-full bg-[#11100e] text-[#e5e2e3] py-10 sm:py-16 px-4 sm:px-6 lg:px-20 max-w-[1440px] mx-auto space-y-10 sm:space-y-16">
       {/* Screen Header & Luxury Subnav Controls */}
-      <section className="space-y-8 border-b border-[#4d4635]/40 pb-8">
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6">
-          <div className="max-w-2xl space-y-2">
-            <span className="font-sans text-[10px] font-semibold text-[#f2ca50] tracking-[0.25em] uppercase block">
-              Cinematic Art &amp; Global Media
-            </span>
-            <h1 className="font-serif text-[28px] sm:text-[38px] lg:text-[46px] font-normal leading-tight text-[#e5e2e3]">
-              Cinematic Art &amp; <span className="italic text-[#f2ca50]">Accredited Press</span>
+      <section className="space-y-6 sm:space-y-8 border-b border-[#2e2617] pb-6 sm:pb-8">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-5">
+          <div className="max-w-2xl space-y-2.5">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1f1a14] border border-[#d4af37]/40 text-[#f2ca50] text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.22em] rounded-full shadow-sm">
+              <Sparkles className="w-3 h-3 text-[#f2ca50]" />
+              <span>Cinematic Art &amp; Global Media</span>
+            </div>
+            <h1 className="font-['Cinzel'] text-[26px] sm:text-[36px] lg:text-[46px] font-normal leading-tight text-[#f4efe6]">
+              Cinematic Art &amp; <span className="italic font-serif text-[#f2ca50]">Accredited Press</span>
             </h1>
-            <p className="font-sans text-[13px] sm:text-[14px] text-[#d0c5af] leading-relaxed">
+            <p className="font-['Montserrat'] text-[12.5px] sm:text-[14px] text-[#c8beaa] font-light leading-relaxed">
               Curating high-concept cinematic IP that marries commercial viability with profound socio-cultural narratives across global festival circuits, premier broadcasts, and top financial journals.
             </p>
           </div>
@@ -99,7 +100,7 @@ export const MediaPressScreen: React.FC<MediaPressScreenProps> = ({ onOpenMediaK
           {onOpenMediaKit && (
             <button
               onClick={onOpenMediaKit}
-              className="inline-flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-[#1e1b15] to-[#141310] border border-[#d4af37]/70 hover:border-[#f2ca50] text-[#f2ca50] font-sans text-[10.5px] sm:text-[11px] font-bold tracking-wider uppercase transition-all rounded shadow-md hover:shadow-[#f2ca50]/15 hover:scale-[1.02] cursor-pointer shrink-0"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-[#1e1b15] to-[#141310] border border-[#d4af37]/70 hover:border-[#f2ca50] text-[#f2ca50] font-['Montserrat'] text-[10px] sm:text-[11px] font-bold tracking-wider uppercase transition-all rounded-lg shadow-md hover:shadow-[#f2ca50]/15 hover:scale-[1.02] cursor-pointer shrink-0"
             >
               <Download className="w-3.5 h-3.5 text-[#f2ca50]" />
               <span>Download Media Kit</span>

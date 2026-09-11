@@ -71,6 +71,8 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
       accentColor: '#f2ca50',
       tabTarget: 'about-zeenat' as TabId,
       tabLabel: 'Executive Chancery',
+      mobileLabel: 'Chancery',
+      slideNumber: '01',
       tagline: 'Sovereign Diplomacy & Strategy',
     },
     {
@@ -88,6 +90,8 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
       accentColor: '#e9c176',
       tabTarget: 'media-press' as TabId,
       tabLabel: 'Film & Media',
+      mobileLabel: 'Cinema',
+      slideNumber: '02',
       tagline: 'Global Screens & Co-Productions',
     },
     {
@@ -105,6 +109,8 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
       accentColor: '#f2ca50',
       tabTarget: 'trade-investment' as TabId,
       tabLabel: 'Trade Corridors',
+      mobileLabel: 'Trade',
+      slideNumber: '03',
       tagline: 'Cross-Border Capital & Corridors',
     },
     {
@@ -122,6 +128,8 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
       accentColor: '#ffdea5',
       tabTarget: 'women-leadership' as TabId,
       tabLabel: 'Women Leadership',
+      mobileLabel: 'Leadership',
+      slideNumber: '04',
       tagline: 'Civic Equity & Parity Conclaves',
     },
   ];
@@ -263,41 +271,45 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
               </p>
             </div>
 
-            {/* Responsive Call to Action Buttons */}
-            {/* Mobile View: Clean 2-Button Row (Takes up minimal space, highly legible) */}
-            <div className="flex sm:hidden items-center gap-2 pt-1">
+            {/* Responsive Call to Action Buttons - Perfectly Balanced & Symmetrical */}
+            {/* Mobile View: 50/50 Dual Pill Grid with Identical Height & Sleek Alignment */}
+            <div className="grid grid-cols-2 gap-2.5 sm:hidden pt-2 w-full max-w-lg">
               <button
-                onClick={() => onOpenCollaborate('collaborate')}
-                className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-4 bg-gradient-to-r from-[#d4af37] via-[#f2ca50] to-[#e6bc48] text-[#080808] font-['Montserrat'] text-[9.5px] font-bold tracking-[0.14em] uppercase rounded-lg shadow-lg active:scale-95 transition-all"
+                onClick={() => {
+                  onSelectTab(activeSlideData.tabTarget);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="h-11 w-full inline-flex items-center justify-center gap-1.5 px-3 bg-gradient-to-r from-[#d4af37] via-[#f2ca50] to-[#e6bc48] text-[#141002] font-['Montserrat'] text-[9.5px] xs:text-[10px] font-bold tracking-[0.12em] uppercase rounded-lg shadow-[0_4px_16px_rgba(242,202,80,0.3)] active:scale-95 transition-all cursor-pointer border border-[#f2ca50]"
               >
-                <Handshake className="w-3.5 h-3.5" />
-                <span>Collaborate</span>
-                <ArrowRight className="w-3 h-3" />
+                <span className="truncate">Explore {activeSlideData.mobileLabel}</span>
+                <ArrowRight className="w-3.5 h-3.5 shrink-0 text-[#141002]" />
               </button>
 
               <button
-                onClick={() => onSelectTab(activeSlideData.tabTarget)}
-                className="inline-flex items-center justify-center gap-1.5 py-2.5 px-3.5 border border-[#f2ca50]/50 bg-black/60 text-[#f2ca50] font-['Montserrat'] text-[9.5px] font-semibold tracking-[0.12em] uppercase rounded-lg shadow-sm active:scale-95 transition-all"
+                onClick={() => onOpenCollaborate('media')}
+                className="h-11 w-full inline-flex items-center justify-center gap-1.5 px-3 border border-[#d4af37]/70 hover:border-[#f2ca50] bg-[#14120f]/90 hover:bg-[#1c1914] text-[#f2ca50] font-['Montserrat'] text-[9.5px] xs:text-[10px] font-bold tracking-[0.12em] uppercase rounded-lg shadow-[0_4px_16px_rgba(0,0,0,0.5)] active:scale-95 transition-all cursor-pointer backdrop-blur-md"
               >
-                <span>Explore</span>
-                <ArrowRight className="w-3 h-3" />
+                <Newspaper className="w-3.5 h-3.5 text-[#f2ca50] shrink-0" />
+                <span className="truncate">Protocol Inquiry</span>
               </button>
             </div>
 
-            {/* Tablet & Desktop View: Full 3 Luxury CTAs */}
+            {/* Tablet & Desktop View: 3 Refined Luxury CTAs (Explore Vertical, Media Inquiry, Investment FDI) */}
             <div className="hidden sm:flex items-center gap-3 pt-2">
               <button
-                onClick={() => onOpenCollaborate('collaborate')}
-                className="group inline-flex items-center justify-center gap-2.5 px-5 sm:px-6 py-3 bg-[#f2ca50] text-[#080808] font-['Montserrat'] text-[10px] font-bold tracking-[0.18em] uppercase transition-all duration-300 hover:bg-[#ffe088] hover:scale-102 cursor-pointer shadow-xl shadow-[#f2ca50]/20 rounded-lg min-h-[44px]"
+                onClick={() => {
+                  onSelectTab(activeSlideData.tabTarget);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="group inline-flex items-center justify-center gap-2.5 px-5 sm:px-6 py-3 bg-[#f2ca50] text-[#080808] font-['Montserrat'] text-[10.5px] font-bold tracking-[0.16em] uppercase transition-all duration-300 hover:bg-[#ffe088] hover:scale-102 cursor-pointer shadow-xl shadow-[#f2ca50]/20 rounded-lg min-h-[46px]"
               >
-                <Handshake className="w-3.5 h-3.5 text-[#080808]" />
-                <span>Collaborate</span>
+                <span>Explore {activeSlideData.tabLabel}</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </button>
 
               <button
                 onClick={() => onOpenCollaborate('media')}
-                className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-3 border border-white/30 bg-black/40 backdrop-blur-md text-white font-['Montserrat'] text-[10px] font-semibold tracking-[0.16em] uppercase hover:border-[#f2ca50] hover:text-[#f2ca50] hover:bg-black/60 transition-all cursor-pointer shadow-lg rounded-lg min-h-[44px]"
+                className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-3 border border-white/30 bg-black/40 backdrop-blur-md text-white font-['Montserrat'] text-[10.5px] font-semibold tracking-[0.16em] uppercase hover:border-[#f2ca50] hover:text-[#f2ca50] hover:bg-black/60 transition-all cursor-pointer shadow-lg rounded-lg min-h-[46px]"
               >
                 <Newspaper className="w-3.5 h-3.5" />
                 <span>Media Inquiry</span>
@@ -305,7 +317,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
 
               <button
                 onClick={() => onOpenCollaborate('investment')}
-                className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-3 border border-[#f2ca50]/70 bg-[#f2ca50]/10 backdrop-blur-md text-[#f2ca50] font-['Montserrat'] text-[10px] font-semibold tracking-[0.16em] uppercase hover:bg-[#f2ca50] hover:text-[#080808] transition-all cursor-pointer shadow-lg rounded-lg min-h-[44px]"
+                className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-3 border border-[#f2ca50]/70 bg-[#f2ca50]/10 backdrop-blur-md text-[#f2ca50] font-['Montserrat'] text-[10.5px] font-semibold tracking-[0.16em] uppercase hover:bg-[#f2ca50] hover:text-[#080808] transition-all cursor-pointer shadow-lg rounded-lg min-h-[46px]"
               >
                 <Coins className="w-3.5 h-3.5" />
                 <span>Investment Discussion</span>
@@ -314,29 +326,36 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
           </div>
 
           {/* Interactive Slide Switcher */}
-          {/* Mobile View: Sleek, compact 4-segment luxury progress pills */}
-          <div className="grid grid-cols-4 gap-1.5 sm:hidden mt-4 pt-1">
+          {/* Mobile View: 4 Symmetrical Luxury Progress Pills (Zero Truncation) */}
+          <div className="grid grid-cols-4 gap-1.5 xs:gap-2 sm:hidden mt-4 pt-1 w-full">
             {heroSlides.map((slide, index) => {
               const isSelected = index === currentSlide;
               return (
                 <button
                   key={slide.id}
                   onClick={() => goToSlide(index)}
-                  className={`py-2 px-1 rounded-md text-center border transition-all duration-300 relative overflow-hidden ${
+                  className={`py-2 px-1 rounded-lg text-center border transition-all duration-300 relative overflow-hidden cursor-pointer ${
                     isSelected
-                      ? 'bg-[#1a1712]/95 border-[#f2ca50] shadow-[0_0_10px_rgba(242,202,80,0.3)]'
-                      : 'bg-black/50 border-white/10 text-white/60'
+                      ? 'bg-gradient-to-b from-[#211d14] to-[#12100c] border-[#f2ca50] shadow-[0_0_14px_rgba(242,202,80,0.35)]'
+                      : 'bg-[#0e0d0b]/80 border-white/10 text-white/50 hover:border-[#f2ca50]/40'
                   }`}
                 >
                   {isSelected && (
-                    <div className="absolute top-0 left-0 w-full h-[2px] bg-[#f2ca50]" />
+                    <div className="absolute top-0 left-0 w-full h-[2px] bg-[#f2ca50] shadow-[0_0_6px_#f2ca50]" />
                   )}
                   <span
-                    className={`font-['Montserrat'] text-[8px] font-bold uppercase tracking-wider block truncate ${
+                    className={`font-mono text-[7.5px] tracking-widest block leading-tight ${
+                      isSelected ? 'text-[#f2ca50]' : 'text-white/40'
+                    }`}
+                  >
+                    {slide.slideNumber}
+                  </span>
+                  <span
+                    className={`font-['Montserrat'] text-[8.5px] font-bold uppercase tracking-wider block mt-0.5 whitespace-nowrap ${
                       isSelected ? 'text-[#f2ca50]' : 'text-white/70'
                     }`}
                   >
-                    {slide.tabLabel}
+                    {slide.mobileLabel}
                   </span>
                 </button>
               );
@@ -563,37 +582,26 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[#f2ca50]/5 rounded-full blur-[180px] pointer-events-none"></div>
 
         <div className="relative z-10 max-w-[1440px] mx-auto px-5 lg:px-20">
-          {/* Section Header with Refined Responsive Hierarchy */}
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 mb-12 lg:mb-16 pb-6 border-b border-[#2e271a]">
-            <div className="space-y-3 max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1c1913] border border-[#d4af37]/40 text-[#f2ca50] text-[9.5px] sm:text-[10px] font-bold uppercase tracking-[0.24em] rounded-full shadow-sm">
+          {/* Section Header with Refined Responsive Luxury Typography */}
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-5 mb-10 lg:mb-14 pb-6 border-b border-[#2e271a]">
+            <div className="space-y-2.5 max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1c1913] border border-[#d4af37]/40 text-[#f2ca50] text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.22em] rounded-full shadow-sm">
                 <Sparkles className="w-3 h-3 text-[#f2ca50]" />
-                <span>Strategic Portfolios</span>
+                <span>Strategic Portfolios &amp; Mandates</span>
               </div>
-              <h2 className="font-['Cinzel'] text-[28px] sm:text-[36px] lg:text-[42px] font-normal text-[#f4efe6] leading-tight tracking-tight">
+              <h2 className="font-['Cinzel'] text-[26px] sm:text-[36px] lg:text-[42px] font-normal text-[#f4efe6] leading-tight tracking-tight">
                 Key Verticals
               </h2>
-              {/* Responsive Category Chips - never breaks words awkwardly */}
-              <div className="flex flex-wrap items-center gap-2 pt-1">
-                {[
-                  { name: 'Trade', desc: 'Bilateral Corridors' },
-                  { name: 'Media', desc: 'Global Screens' },
-                  { name: 'Women Leadership', desc: 'Civic Parity' },
-                  { name: 'Investment Advisory', desc: 'Sovereign Capital' },
-                ].map((item) => (
-                  <span
-                    key={item.name}
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#171512] border border-[#3e3422] text-[#d0c5af] text-[10.5px] sm:text-[11px] font-medium tracking-wider uppercase font-['Montserrat'] shadow-xs"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#f2ca50]"></span>
-                    <span className="text-[#f4efe6] font-semibold">{item.name}</span>
-                  </span>
-                ))}
+              <p className="font-['Montserrat'] text-[12.5px] sm:text-[14px] text-[#b8ad96] font-light leading-relaxed max-w-xl">
+                Sovereign execution across four foundational pillars uniting economic diplomacy, global storytelling, and civic governance.
+              </p>
+            </div>
+
+            <div className="hidden lg:flex items-center gap-3">
+              <div className="px-3.5 py-1.5 rounded-lg bg-[#171512] border border-[#3e3422] text-[#d4af37] font-['Montserrat'] text-[10px] font-semibold tracking-widest uppercase">
+                4 Core Diplomatic Pillars
               </div>
             </div>
-            <p className="font-['Montserrat'] text-[13px] sm:text-[14px] text-[#b8ad96] font-light max-w-md leading-relaxed">
-              Sovereign execution across four foundational pillars uniting economic diplomacy, global storytelling, and civic governance.
-            </p>
           </div>
 
           {/* 4 Key Verticals Grid - Responsive across Mobile, Tablet, and Laptop */}
