@@ -44,6 +44,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
 }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
+  const [isPaused, setIsPaused] = useState(false);
   const [slideProgressKey, setSlideProgressKey] = useState(0);
 
   const [formData, setFormData] = useState({
@@ -60,12 +61,12 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
       id: 'sovereign',
       category: 'Sovereign Chancery',
       badge: 'GCC · India · Global',
-      kicker: 'Film Producer | GCC–India Trade Commissioner | National President',
+      kicker: 'Sovereign Diplomacy | Bilateral Statecraft | Global Conclaves',
       titlePrefix: 'Zeenat',
       titleHighlight: 'Kureshi',
-      positioningLine: 'Film Producer | GCC–India Trade Commissioner | National President',
+      positioningLine: 'Zeenat Kureshi — Sovereign Chancery & Bilateral Statecraft',
       description:
-        'Spearheading high-concept cinematic IP, architecting multi-billion dollar cross-border trade corridors between India and the GCC, and championing socioeconomic equity as National President of the Women Cell. Connecting sovereign capitals, cultural storytelling, and transformative civic governance on the world stage.',
+        'Spearheading high-concept cinematic IP, architecting multi-billion dollar cross-border trade corridors between India and the GCC, and championing socioeconomic equity as National President on the world stage.',
       image:
         'https://lh3.googleusercontent.com/aida-public/AB6AXuC6IHnCaef41g32aYh105zuRmheL7FwAT-AndGJukXlIE3t4L0szoFQEx8N8S3oPLqPmulPo5Oo776ceRauA2mrWttmN0hpVMmyTa0pTwujXGtjzvMUBiUugC_-F00w5D3skN_AK9FxGE5wHuyFUOuCnS9w6PXK7qD9McLtiTa4qfAhLXGi3BBaDbauoUWTQ5ZowUhwCKD9zWtPptwld2KaXrFj9Uge6Tg0vxx9dGPBUC0JjEbTLaxZ',
       accentColor: '#f2ca50',
@@ -82,9 +83,9 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
       kicker: 'International Co-Productions | Festival Trajectories | Global OTT',
       titlePrefix: 'Cinematic',
       titleHighlight: 'Narratives',
-      positioningLine: 'Film Producer & Global Media Financier',
+      positioningLine: 'Zeenat Kureshi — Film Producer & Global Media Financier',
       description:
-        'Developing landmark cinematic intellectual property marrying commercial viability with profound socio-cultural narratives. Leveraging international co-production treaties, Cannes & Red Sea festival trajectories, and multi-territory worldwide distribution syndicates.',
+        'Developing landmark cinematic intellectual property marrying commercial viability with profound socio-cultural narratives across international co-production treaties and global distribution syndicates.',
       image:
         'https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=2000&q=85',
       accentColor: '#e9c176',
@@ -101,9 +102,9 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
       kicker: 'Ministerial Delegations | Cross-Border Corridors | Inward FDI',
       titlePrefix: 'Bilateral',
       titleHighlight: 'Trade & FDI',
-      positioningLine: 'GCC–India Bilateral Trade Commissioner',
+      positioningLine: 'Zeenat Kureshi — GCC–India Bilateral Trade Commissioner',
       description:
-        'Navigating sovereign commerce across the United Arab Emirates, Saudi Arabia, Qatar, and the Republic of India under CEPA frameworks. Architecting high-level market entries, ministerial trade delegations, and institutional private capital conduits.',
+        'Navigating sovereign commerce across the UAE, Saudi Arabia, Qatar, and India under CEPA frameworks. Architecting high-level market entries, ministerial trade delegations, and institutional private capital conduits.',
       image:
         'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=2000&q=85',
       accentColor: '#f2ca50',
@@ -116,13 +117,13 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
     {
       id: 'leadership',
       category: 'Civic Mandate',
-      badge: 'All India Jamiatul Quresh Women Cell · 120,000+ Mobilized',
+      badge: 'National Women Cell · 120,000+ Mobilized',
       kicker: 'National President | Policy Advocacy | Boardroom Parity',
-      titlePrefix: 'Transformative',
+      titlePrefix: 'Women',
       titleHighlight: 'Leadership',
-      positioningLine: 'National President — Women Cell',
+      positioningLine: 'Zeenat Kureshi — National President, Women Leadership Council',
       description:
-        'Serving as National President to mobilize grassroots enterprise, seed grants, and boardroom parity. Championing public policy advocacy, corporate diversity charters, and sovereign mentorship conclaves elevating 120,000+ women leaders worldwide.',
+        'Serving as National President to mobilize grassroots enterprise, seed grants, and boardroom parity. Championing public policy advocacy and sovereign mentorship conclaves elevating 120,000+ women leaders worldwide.',
       image:
         'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=2000&q=85',
       accentColor: '#ffdea5',
@@ -134,28 +135,71 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
     },
   ];
 
-  // Automatic slide advancement timer
+  // Preload all hero banner images into browser cache for instant, seamless transitions
   useEffect(() => {
+    heroSlides.forEach((slide) => {
+      const img = new Image();
+      img.src = slide.image;
+    });
+  }, []);
+
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+
+  // Automatic slide advancement timer with pause support
+  useEffect(() => {
+    if (isPaused) return;
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+      setSlideProgressKey((prev) => prev + 1);
     }, SLIDE_DURATION);
 
     return () => clearInterval(interval);
-  }, [heroSlides.length]);
+  }, [heroSlides.length, isPaused, slideProgressKey]);
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
+    setSlideProgressKey((prev) => prev + 1);
   };
 
   const handleNextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    if (currentSlide < heroSlides.length - 1) {
+      setCurrentSlide((prev) => prev + 1);
+      setSlideProgressKey((prev) => prev + 1);
+    } else {
+      // Loop back to start if triggered
+      setCurrentSlide(0);
+      setSlideProgressKey((prev) => prev + 1);
+    }
   };
 
   const handlePrevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+    if (currentSlide > 0) {
+      setCurrentSlide((prev) => prev - 1);
+      setSlideProgressKey((prev) => prev + 1);
+    }
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStartX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX - touchEndX;
+    if (diff > 45) {
+      // Swiped left -> next slide
+      handleNextSlide();
+    } else if (diff < -45) {
+      // Swiped right -> prev slide
+      handlePrevSlide();
+    }
+    setTouchStartX(null);
   };
 
   const activeSlideData = heroSlides[currentSlide];
+  const isFirstSlide = currentSlide === 0;
+  const isLastSlide = currentSlide === heroSlides.length - 1;
 
   const handleDispatchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -169,6 +213,10 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
       <section
         className="relative w-full min-h-[calc(100svh-56px)] sm:min-h-[calc(100svh-64px)] pt-4 sm:pt-8 pb-10 sm:pb-16 flex flex-col justify-end overflow-hidden bg-[#070707] select-none"
         aria-label="Cinematic Hero Banner"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
       >
         {/* Background Slides with Smooth Crossfade and 3D Ken-Burns Depth */}
         {heroSlides.map((slide, index) => {
@@ -183,6 +231,8 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
               <img
                 src={slide.image}
                 alt={slide.kicker}
+                loading="eager"
+                decoding="async"
                 className={`w-full h-full object-cover ${
                   slide.id === 'sovereign'
                     ? 'object-[center_15%] sm:object-center'
@@ -211,18 +261,29 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
           </div>
         </div>
 
-        {/* Left & Right Slider Floating Chevrons (visible on tablet/desktop) */}
+        {/* Left Floating Chevron (Visible when not on the very first slide, prominent when on the last slide) */}
         <button
           onClick={handlePrevSlide}
-          className="hidden md:flex absolute left-3 sm:left-6 lg:left-8 top-1/2 -translate-y-1/2 z-20 p-2.5 sm:p-3.5 bg-black/50 backdrop-blur-md border border-[#f2ca50]/20 hover:border-[#f2ca50] text-white/80 hover:text-[#f2ca50] transition-all hover:scale-110 rounded-full cursor-pointer shadow-2xl group"
+          disabled={isFirstSlide}
+          className={`hidden md:flex absolute left-3 sm:left-6 lg:left-8 top-1/2 -translate-y-1/2 z-20 p-3 sm:p-3.5 bg-black/60 backdrop-blur-md border border-[#f2ca50]/40 text-[#f2ca50] transition-all duration-300 rounded-full shadow-2xl group ${
+            isFirstSlide
+              ? 'opacity-0 pointer-events-none scale-75'
+              : 'opacity-100 scale-100 hover:scale-110 hover:border-[#f2ca50] hover:bg-black/85 cursor-pointer shadow-[0_0_20px_rgba(242,202,80,0.25)]'
+          }`}
           aria-label="Previous Slide"
         >
           <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 group-hover:-translate-x-0.5 transition-transform" />
         </button>
 
+        {/* Right Floating Chevron (Visible when not on the last slide) */}
         <button
           onClick={handleNextSlide}
-          className="hidden md:flex absolute right-3 sm:right-6 lg:right-8 top-1/2 -translate-y-1/2 z-20 p-2.5 sm:p-3.5 bg-black/50 backdrop-blur-md border border-[#f2ca50]/20 hover:border-[#f2ca50] text-white/80 hover:text-[#f2ca50] transition-all hover:scale-110 rounded-full cursor-pointer shadow-2xl group"
+          disabled={isLastSlide}
+          className={`hidden md:flex absolute right-3 sm:right-6 lg:right-8 top-1/2 -translate-y-1/2 z-20 p-3 sm:p-3.5 bg-black/60 backdrop-blur-md border border-[#f2ca50]/40 text-[#f2ca50] transition-all duration-300 rounded-full shadow-2xl group ${
+            isLastSlide
+              ? 'opacity-0 pointer-events-none scale-75'
+              : 'opacity-100 scale-100 hover:scale-110 hover:border-[#f2ca50] hover:bg-black/85 cursor-pointer shadow-[0_0_20px_rgba(242,202,80,0.25)]'
+          }`}
           aria-label="Next Slide"
         >
           <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-0.5 transition-transform" />
@@ -230,102 +291,106 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
 
         {/* Main Content Area with Clean, Spacious Luxury Mobile & Desktop Hierarchy */}
         <div className="relative z-10 w-full max-w-[1500px] mx-auto px-4 sm:px-8 lg:px-16 xl:px-20 pb-4 sm:pb-8 lg:pb-12 pt-4 sm:pt-12">
-          <div className="max-w-4xl space-y-3 sm:space-y-4">
-            {/* Slide Category Badge & Kicker */}
-            <div className="flex items-center gap-2 sm:gap-3 transition-all duration-700 ease-out">
-              <span
-                className="w-4 sm:w-8 h-px transition-colors duration-500"
-                style={{ backgroundColor: activeSlideData.accentColor }}
-              ></span>
-              <span
-                className="font-['Montserrat'] text-[8px] sm:text-[10px] md:text-[10.5px] font-bold tracking-[0.2em] sm:tracking-[0.28em] uppercase"
-                style={{ color: activeSlideData.accentColor }}
+          <div className="max-w-4xl min-h-[290px] xs:min-h-[310px] sm:min-h-[340px] md:min-h-[370px] lg:min-h-[400px] flex flex-col justify-end">
+            <div key={currentSlide} className="space-y-3 sm:space-y-4 animate-hero-slide-fade">
+              {/* Slide Category Badge & Kicker */}
+              <div className="flex items-center gap-2 sm:gap-3 h-5 sm:h-6 overflow-hidden">
+                <span
+                  className="w-4 sm:w-8 h-px shrink-0 transition-colors duration-500"
+                  style={{ backgroundColor: activeSlideData.accentColor }}
+                ></span>
+                <span
+                  className="font-['Montserrat'] text-[8px] sm:text-[10px] md:text-[10.5px] font-bold tracking-[0.2em] sm:tracking-[0.28em] uppercase truncate"
+                  style={{ color: activeSlideData.accentColor }}
+                >
+                  {activeSlideData.badge}
+                </span>
+              </div>
+
+              {/* Dynamic Positioning Pill */}
+              <div className="inline-flex items-center bg-black/60 backdrop-blur-md border border-[#f2ca50]/30 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-md max-w-full">
+                <p className="font-['Montserrat'] text-[8px] sm:text-[9.5px] md:text-[10.5px] text-[#f2ca50] font-semibold tracking-[0.1em] sm:tracking-[0.16em] uppercase leading-relaxed truncate">
+                  {activeSlideData.positioningLine}
+                </p>
+              </div>
+
+              {/* Slide Title with Fluid Luxury Horizontal Typography */}
+              <div className="min-h-[48px] xs:min-h-[58px] sm:min-h-[76px] md:min-h-[92px] lg:min-h-[110px] flex items-center">
+                <h1 className="font-['Bodoni Moda'] text-[28px] xs:text-[34px] sm:text-[46px] md:text-[56px] lg:text-[68px] xl:text-[76px] leading-[1.08] tracking-[-0.02em] font-normal text-white drop-shadow-2xl flex flex-wrap items-baseline gap-x-2 sm:gap-x-3.5">
+                  <span>{activeSlideData.titlePrefix}</span>
+                  <span className="italic gold-gradient-text">
+                    {activeSlideData.titleHighlight}
+                  </span>
+                </h1>
+              </div>
+
+              {/* Concise Luxury Introduction */}
+              <div
+                className="max-w-2xl border-l-2 pl-3 sm:pl-4 transition-colors duration-500 bg-black/40 backdrop-blur-xs py-1 rounded-r min-h-[54px] sm:min-h-[64px] md:min-h-[72px] flex items-center"
+                style={{ borderColor: activeSlideData.accentColor }}
               >
-                {activeSlideData.badge}
-              </span>
-            </div>
+                <p className="font-['Montserrat'] text-[11px] sm:text-[13px] md:text-[14px] text-white/90 font-light leading-relaxed line-clamp-3 sm:line-clamp-3">
+                  {activeSlideData.description}
+                </p>
+              </div>
 
-            {/* Positioning Pill - Compact & Elegant on Mobile */}
-            <div className="inline-block bg-black/60 backdrop-blur-md border border-[#f2ca50]/30 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-md max-w-full">
-              <p className="font-['Montserrat'] text-[8px] sm:text-[9.5px] md:text-[10.5px] text-[#f2ca50] font-semibold tracking-[0.1em] sm:tracking-[0.16em] uppercase leading-relaxed">
-                Zeenat Kureshi — Film Producer | GCC–India Trade Commissioner | National President
-              </p>
-            </div>
+              {/* Responsive Call to Action Buttons - Perfectly Balanced & Symmetrical */}
+              {/* Mobile View: 50/50 Dual Pill Grid with Identical Height & Sleek Alignment */}
+              <div className="grid grid-cols-2 gap-2.5 sm:hidden pt-2 w-full max-w-lg h-11">
+                <button
+                  onClick={() => {
+                    onSelectTab(activeSlideData.tabTarget);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className="h-11 w-full inline-flex items-center justify-center gap-1.5 px-3 bg-gradient-to-r from-[#d4af37] via-[#f2ca50] to-[#e6bc48] text-[#141002] font-['Montserrat'] text-[9.5px] xs:text-[10px] font-bold tracking-[0.12em] uppercase rounded-lg shadow-[0_4px_16px_rgba(242,202,80,0.3)] active:scale-95 transition-all cursor-pointer border border-[#f2ca50]"
+                >
+                  <span className="truncate">Explore {activeSlideData.mobileLabel}</span>
+                  <ArrowRight className="w-3.5 h-3.5 shrink-0 text-[#141002]" />
+                </button>
 
-            {/* Slide Title with Fluid Luxury Horizontal Typography */}
-            <h1 className="font-['Bodoni Moda'] text-[28px] xs:text-[34px] sm:text-[48px] md:text-[62px] lg:text-[76px] xl:text-[88px] leading-[1.08] tracking-[-0.02em] font-normal text-white drop-shadow-2xl flex flex-wrap items-baseline gap-x-2 sm:gap-x-3.5">
-              <span>{activeSlideData.titlePrefix}</span>
-              <span className="italic transition-colors duration-500 gold-gradient-text">
-                {activeSlideData.titleHighlight}
-              </span>
-            </h1>
+                <button
+                  onClick={() => onOpenCollaborate('media')}
+                  className="h-11 w-full inline-flex items-center justify-center gap-1.5 px-3 border border-[#d4af37]/70 hover:border-[#f2ca50] bg-[#14120f]/90 hover:bg-[#1c1914] text-[#f2ca50] font-['Montserrat'] text-[9.5px] xs:text-[10px] font-bold tracking-[0.12em] uppercase rounded-lg shadow-[0_4px_16px_rgba(0,0,0,0.5)] active:scale-95 transition-all cursor-pointer backdrop-blur-md"
+                >
+                  <Newspaper className="w-3.5 h-3.5 text-[#f2ca50] shrink-0" />
+                  <span className="truncate">Protocol Inquiry</span>
+                </button>
+              </div>
 
-            {/* Concise Luxury Introduction (Concise on mobile, expanded on desktop) */}
-            <div
-              className="max-w-2xl border-l-2 pl-3 sm:pl-4 transition-colors duration-500 bg-black/40 backdrop-blur-xs py-1 rounded-r"
-              style={{ borderColor: activeSlideData.accentColor }}
-            >
-              <p className="font-['Montserrat'] text-[11px] sm:text-[13px] md:text-[14px] text-white/90 font-light leading-relaxed line-clamp-3 sm:line-clamp-none">
-                {activeSlideData.description}
-              </p>
-            </div>
+              {/* Tablet & Desktop View: 3 Refined Luxury CTAs */}
+              <div className="hidden sm:flex items-center gap-3 pt-2 h-12">
+                <button
+                  onClick={() => {
+                    onSelectTab(activeSlideData.tabTarget);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className="group inline-flex items-center justify-center gap-2.5 px-5 sm:px-6 h-12 bg-[#f2ca50] text-[#080808] font-['Montserrat'] text-[10.5px] font-bold tracking-[0.16em] uppercase transition-all duration-300 hover:bg-[#ffe088] hover:scale-102 cursor-pointer shadow-xl shadow-[#f2ca50]/20 rounded-lg"
+                >
+                  <span>Explore {activeSlideData.tabLabel}</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                </button>
 
-            {/* Responsive Call to Action Buttons - Perfectly Balanced & Symmetrical */}
-            {/* Mobile View: 50/50 Dual Pill Grid with Identical Height & Sleek Alignment */}
-            <div className="grid grid-cols-2 gap-2.5 sm:hidden pt-2 w-full max-w-lg">
-              <button
-                onClick={() => {
-                  onSelectTab(activeSlideData.tabTarget);
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
-                className="h-11 w-full inline-flex items-center justify-center gap-1.5 px-3 bg-gradient-to-r from-[#d4af37] via-[#f2ca50] to-[#e6bc48] text-[#141002] font-['Montserrat'] text-[9.5px] xs:text-[10px] font-bold tracking-[0.12em] uppercase rounded-lg shadow-[0_4px_16px_rgba(242,202,80,0.3)] active:scale-95 transition-all cursor-pointer border border-[#f2ca50]"
-              >
-                <span className="truncate">Explore {activeSlideData.mobileLabel}</span>
-                <ArrowRight className="w-3.5 h-3.5 shrink-0 text-[#141002]" />
-              </button>
+                <button
+                  onClick={() => onOpenCollaborate('media')}
+                  className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 h-12 border border-white/30 bg-black/40 backdrop-blur-md text-white font-['Montserrat'] text-[10.5px] font-semibold tracking-[0.16em] uppercase hover:border-[#f2ca50] hover:text-[#f2ca50] hover:bg-black/60 transition-all cursor-pointer shadow-lg rounded-lg"
+                >
+                  <Newspaper className="w-3.5 h-3.5" />
+                  <span>Media Inquiry</span>
+                </button>
 
-              <button
-                onClick={() => onOpenCollaborate('media')}
-                className="h-11 w-full inline-flex items-center justify-center gap-1.5 px-3 border border-[#d4af37]/70 hover:border-[#f2ca50] bg-[#14120f]/90 hover:bg-[#1c1914] text-[#f2ca50] font-['Montserrat'] text-[9.5px] xs:text-[10px] font-bold tracking-[0.12em] uppercase rounded-lg shadow-[0_4px_16px_rgba(0,0,0,0.5)] active:scale-95 transition-all cursor-pointer backdrop-blur-md"
-              >
-                <Newspaper className="w-3.5 h-3.5 text-[#f2ca50] shrink-0" />
-                <span className="truncate">Protocol Inquiry</span>
-              </button>
-            </div>
-
-            {/* Tablet & Desktop View: 3 Refined Luxury CTAs (Explore Vertical, Media Inquiry, Investment FDI) */}
-            <div className="hidden sm:flex items-center gap-3 pt-2">
-              <button
-                onClick={() => {
-                  onSelectTab(activeSlideData.tabTarget);
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
-                className="group inline-flex items-center justify-center gap-2.5 px-5 sm:px-6 py-3 bg-[#f2ca50] text-[#080808] font-['Montserrat'] text-[10.5px] font-bold tracking-[0.16em] uppercase transition-all duration-300 hover:bg-[#ffe088] hover:scale-102 cursor-pointer shadow-xl shadow-[#f2ca50]/20 rounded-lg min-h-[46px]"
-              >
-                <span>Explore {activeSlideData.tabLabel}</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-              </button>
-
-              <button
-                onClick={() => onOpenCollaborate('media')}
-                className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-3 border border-white/30 bg-black/40 backdrop-blur-md text-white font-['Montserrat'] text-[10.5px] font-semibold tracking-[0.16em] uppercase hover:border-[#f2ca50] hover:text-[#f2ca50] hover:bg-black/60 transition-all cursor-pointer shadow-lg rounded-lg min-h-[46px]"
-              >
-                <Newspaper className="w-3.5 h-3.5" />
-                <span>Media Inquiry</span>
-              </button>
-
-              <button
-                onClick={() => onOpenCollaborate('investment')}
-                className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-3 border border-[#f2ca50]/70 bg-[#f2ca50]/10 backdrop-blur-md text-[#f2ca50] font-['Montserrat'] text-[10.5px] font-semibold tracking-[0.16em] uppercase hover:bg-[#f2ca50] hover:text-[#080808] transition-all cursor-pointer shadow-lg rounded-lg min-h-[46px]"
-              >
-                <Coins className="w-3.5 h-3.5" />
-                <span>Investment Discussion</span>
-              </button>
+                <button
+                  onClick={() => onOpenCollaborate('investment')}
+                  className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 h-12 border border-[#f2ca50]/70 bg-[#f2ca50]/10 backdrop-blur-md text-[#f2ca50] font-['Montserrat'] text-[10.5px] font-semibold tracking-[0.16em] uppercase hover:bg-[#f2ca50] hover:text-[#080808] transition-all cursor-pointer shadow-lg rounded-lg"
+                >
+                  <Coins className="w-3.5 h-3.5" />
+                  <span>Investment Discussion</span>
+                </button>
+              </div>
             </div>
           </div>
 
           {/* Interactive Slide Switcher */}
-          {/* Mobile View: 4 Clean, Luxury Navigation Tabs (Page numbers removed for uncluttered elegance) */}
+          {/* Mobile View: 4 Clean, Luxury Navigation Tabs */}
           <div className="grid grid-cols-4 gap-1.5 xs:gap-2 sm:hidden mt-4 pt-1 w-full pb-2">
             {heroSlides.map((slide, index) => {
               const isSelected = index === currentSlide;
@@ -340,7 +405,10 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
                   }`}
                 >
                   {isSelected && (
-                    <div className="absolute top-0 left-0 w-full h-[2.5px] bg-[#f2ca50] shadow-[0_0_8px_#f2ca50]" />
+                    <div
+                      key={`mob-progress-${slideProgressKey}`}
+                      className="absolute top-0 left-0 h-[2.5px] bg-[#f2ca50] shadow-[0_0_8px_#f2ca50] animate-slide-timer"
+                    />
                   )}
                   <span
                     className={`font-['Montserrat'] text-[9px] xs:text-[9.5px] font-bold uppercase tracking-wider whitespace-nowrap ${
@@ -369,7 +437,10 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
                   }`}
                 >
                   {isSelected && (
-                    <div className="absolute top-0 left-0 w-full h-[2.5px] bg-[#f2ca50] z-10 shadow-sm shadow-[#f2ca50]" />
+                    <div
+                      key={`desk-progress-${slideProgressKey}`}
+                      className="absolute top-0 left-0 h-[2.5px] bg-[#f2ca50] shadow-[0_0_8px_#f2ca50] animate-slide-timer z-10"
+                    />
                   )}
 
                   <div className="flex items-center justify-between mb-1">

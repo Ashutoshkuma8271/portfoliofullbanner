@@ -67,8 +67,8 @@ export default function App() {
         onOpenVipPortal={() => setIsVipPortalOpen(true)}
       />
 
-      {/* Main View Container - Zero Gap with Fixed Header */}
-      <main className="w-full pt-14 sm:pt-[64px] flex-1 flex flex-col">
+      {/* Main View Container - Zero Gap with Fixed Header & Smooth Page Transition */}
+      <main key={activeTab} className="w-full pt-14 sm:pt-[64px] flex-1 flex flex-col animate-page-enter">
         {activeTab === 'home' && (
           <HomeScreen
             onSelectTab={handleSelectTab}
