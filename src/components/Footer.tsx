@@ -33,26 +33,31 @@ export const Footer: React.FC<FooterProps> = ({
   };
 
   return (
-    <footer className="w-full bg-[#0e0e0f] border-t border-[#4d4635]/30 pt-16 pb-32 sm:pb-16 text-[#d0c5af]">
-      <div className="max-w-[1440px] mx-auto px-5 lg:px-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 mb-16">
+    <footer className="w-full bg-[#0a0907] border-t border-[#2e2617] pt-12 sm:pt-16 pb-20 sm:pb-12 text-[#c8beaa]">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 mb-10 sm:mb-12">
           {/* Column 1: Sovereign Identity */}
-          <div className="lg:col-span-4 space-y-4">
-            <span className="font-serif text-[22px] font-medium text-[#e5e2e3] uppercase tracking-wider block">
-              Zeenat Kureshi
-            </span>
-            <p className="font-sans text-[14px] font-light text-[#d0c5af] max-w-md leading-relaxed">
-              Executive sovereign folio for global cinematic production, bilateral GCC–India trade corridors, and transformative socio-economic leadership.
+          <div className="sm:col-span-2 lg:col-span-4 space-y-4">
+            <div className="space-y-1">
+              <span className="font-['Bodoni_Moda'] text-[24px] sm:text-[26px] font-normal text-[#f4efe6] tracking-wide block">
+                Zeenat <span className="italic gold-gradient-text">Kureshi</span>
+              </span>
+              <p className="font-['Montserrat'] text-[9.5px] sm:text-[10px] uppercase font-bold tracking-[0.2em] text-[#f2ca50]">
+                Sovereign Chancery &amp; Cultural Statecraft
+              </p>
+            </div>
+
+            <p className="font-['Montserrat'] text-[12.5px] sm:text-[13px] font-light text-[#b8ad96] max-w-sm leading-relaxed">
+              Spearheading high-concept cinematic IP, architecting multi-billion dollar bilateral trade corridors between India and the GCC, and championing socioeconomic equity.
             </p>
-            <div className="flex items-center gap-3 pt-2">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#1c1b1c] border border-[#4d4635]/40 text-[#e5e2e3] font-sans text-[11px] font-semibold tracking-widest uppercase">
-                <span className="material-symbols-outlined text-sm text-[#f2ca50]" style={{ fontVariationSettings: "'FILL' 1" }}>
-                  verified
-                </span>
+
+            <div className="flex flex-wrap items-center gap-2.5 pt-1">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#14120e] border border-[#342b1a] rounded-md text-[#f4efe6] font-['Montserrat'] text-[10px] font-semibold tracking-widest uppercase shadow-xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#f2ca50]"></span>
                 Film Producer
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#1c1b1c] border border-[#4d4635]/40 text-[#e5e2e3] font-sans text-[11px] font-semibold tracking-widest uppercase">
-                <span className="material-symbols-outlined text-sm text-[#f2ca50]">gavel</span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#14120e] border border-[#342b1a] rounded-md text-[#f4efe6] font-['Montserrat'] text-[10px] font-semibold tracking-widest uppercase shadow-xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#e9c176]"></span>
                 Trade Commissioner
               </span>
             </div>
@@ -60,14 +65,14 @@ export const Footer: React.FC<FooterProps> = ({
 
           {/* Column 2: Navigation Folio */}
           <div className="lg:col-span-3 space-y-3">
-            <h3 className="font-sans text-[11px] font-semibold text-[#e5e2e3] uppercase tracking-[0.18em]">
+            <h3 className="font-['Montserrat'] text-[10px] sm:text-[10.5px] font-bold text-[#f4efe6] uppercase tracking-[0.2em]">
               Navigation Folio
             </h3>
-            <ul className="space-y-2.5 font-sans text-[13px]">
+            <ul className="space-y-2 font-['Montserrat'] text-[12.5px] sm:text-[13px]">
               <li>
                 <button
                   onClick={() => { onSelectTab('home'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                  className="hover:text-[#f2ca50] transition-colors cursor-pointer text-left"
+                  className="hover:text-[#f2ca50] transition-colors cursor-pointer text-left py-0.5"
                 >
                   Executive Monograph
                 </button>
@@ -75,7 +80,7 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   onClick={() => { onSelectTab('about-zeenat'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                  className="hover:text-[#f2ca50] transition-colors cursor-pointer text-left"
+                  className="hover:text-[#f2ca50] transition-colors cursor-pointer text-left py-0.5"
                 >
                   Diplomatic Credentials
                 </button>
@@ -83,23 +88,23 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   onClick={() => { onSelectTab('trade-investment'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                  className="hover:text-[#f2ca50] transition-colors cursor-pointer text-left"
+                  className="hover:text-[#f2ca50] transition-colors cursor-pointer text-left py-0.5"
                 >
-                  GCC–India Economic Bilateral
+                  GCC–India Bilateral Trade
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => { onSelectTab('media-press'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                  className="hover:text-[#f2ca50] transition-colors cursor-pointer text-left"
+                  className="hover:text-[#f2ca50] transition-colors cursor-pointer text-left py-0.5"
                 >
-                  Dispatches &amp; Press Communiqués
+                  Cinema &amp; Press Communiqués
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => { onSelectTab('women-leadership'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                  className="hover:text-[#f2ca50] transition-colors cursor-pointer text-left"
+                  className="hover:text-[#f2ca50] transition-colors cursor-pointer text-left py-0.5"
                 >
                   Women Leadership Mandates
                 </button>
@@ -107,16 +112,16 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   onClick={() => { onSelectTab('blog'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                  className="hover:text-[#f2ca50] transition-colors cursor-pointer text-left flex items-center gap-1.5"
+                  className="hover:text-[#f2ca50] transition-colors cursor-pointer text-left flex items-center gap-1.5 py-0.5"
                 >
-                  <span>Insights &amp; Monographs</span>
-                  <span className="text-[9px] px-1.5 py-0.2 bg-[#f2ca50]/15 text-[#f2ca50] rounded">New</span>
+                  <span>Insights &amp; Gazettes</span>
+                  <span className="text-[8.5px] px-1.5 py-0.2 bg-[#f2ca50]/15 text-[#f2ca50] rounded font-semibold">New</span>
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => { onSelectTab('contact'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                  className="hover:text-[#f2ca50] transition-colors cursor-pointer text-left"
+                  className="hover:text-[#f2ca50] transition-colors cursor-pointer text-left py-0.5 text-[#f2ca50]"
                 >
                   Diplomatic Chancery Desk
                 </button>
@@ -126,18 +131,18 @@ export const Footer: React.FC<FooterProps> = ({
 
           {/* Column 3: Institutional & Deliverables Suite */}
           <div className="lg:col-span-2 space-y-3">
-            <h3 className="font-sans text-[11px] font-semibold text-[#e5e2e3] uppercase tracking-[0.18em]">
+            <h3 className="font-['Montserrat'] text-[10px] sm:text-[10.5px] font-bold text-[#f4efe6] uppercase tracking-[0.2em]">
               Executive Suite
             </h3>
-            <ul className="space-y-2.5 font-sans text-[13px]">
+            <ul className="space-y-2 font-['Montserrat'] text-[12.5px] sm:text-[13px]">
               {onOpenDesignMockups && (
                 <li>
                   <button
                     onClick={onOpenDesignMockups}
-                    className="hover:text-[#f2ca50] transition-colors cursor-pointer text-left flex items-center gap-1.5"
+                    className="hover:text-[#f2ca50] transition-colors cursor-pointer text-left flex items-center gap-1.5 py-0.5"
                   >
                     <span>3 Design Concepts</span>
-                    <span className="text-[9px] px-1.5 py-0.5 bg-[#f2ca50]/15 text-[#f2ca50] rounded border border-[#f2ca50]/30">Dossier</span>
+                    <span className="text-[8.5px] px-1.5 py-0.5 bg-[#f2ca50]/15 text-[#f2ca50] rounded border border-[#f2ca50]/30 font-semibold">Dossier</span>
                   </button>
                 </li>
               )}
@@ -145,9 +150,9 @@ export const Footer: React.FC<FooterProps> = ({
                 <li>
                   <button
                     onClick={onOpenAdminCms}
-                    className="hover:text-[#f2ca50] transition-colors cursor-pointer text-left flex items-center gap-1.5"
+                    className="hover:text-[#f2ca50] transition-colors cursor-pointer text-left flex items-center gap-1.5 py-0.5"
                   >
-                    <Lock className="w-3 h-3 text-[#f2ca50]" />
+                    <Lock className="w-3.5 h-3.5 text-[#f2ca50]" />
                     <span>CMS Admin Portal</span>
                   </button>
                 </li>
@@ -156,9 +161,9 @@ export const Footer: React.FC<FooterProps> = ({
                 <li>
                   <button
                     onClick={onOpenInvestorLead}
-                    className="hover:text-[#f2ca50] transition-colors cursor-pointer text-left flex items-center gap-1.5"
+                    className="hover:text-[#f2ca50] transition-colors cursor-pointer text-left flex items-center gap-1.5 py-0.5"
                   >
-                    <TrendingUp className="w-3 h-3 text-[#f2ca50]" />
+                    <TrendingUp className="w-3.5 h-3.5 text-[#e9c176]" />
                     <span>Investor Qualification</span>
                   </button>
                 </li>
@@ -167,9 +172,9 @@ export const Footer: React.FC<FooterProps> = ({
                 <li>
                   <button
                     onClick={onOpenMediaKit}
-                    className="hover:text-[#f2ca50] transition-colors cursor-pointer text-left flex items-center gap-1.5"
+                    className="hover:text-[#f2ca50] transition-colors cursor-pointer text-left flex items-center gap-1.5 py-0.5"
                   >
-                    <Download className="w-3 h-3 text-[#f2ca50]" />
+                    <Download className="w-3.5 h-3.5 text-[#f2ca50]" />
                     <span>Download Media Kit</span>
                   </button>
                 </li>
@@ -178,31 +183,31 @@ export const Footer: React.FC<FooterProps> = ({
           </div>
 
           {/* Column 4: Official Gazettes & Inquiries */}
-          <div className="lg:col-span-3 space-y-4">
-            <h3 className="font-sans text-[11px] font-semibold text-[#e5e2e3] uppercase tracking-[0.18em]">
+          <div className="sm:col-span-2 lg:col-span-3 space-y-3.5">
+            <h3 className="font-['Montserrat'] text-[10px] sm:text-[10.5px] font-bold text-[#f4efe6] uppercase tracking-[0.2em]">
               Official Gazettes &amp; Inquiries
             </h3>
-            <p className="font-sans text-[13px] text-[#d0c5af] leading-relaxed">
+            <p className="font-['Montserrat'] text-[12px] sm:text-[12.5px] text-[#b8ad96] font-light leading-relaxed">
               Receive confidential briefings, high-table summits, and executive communiqués.
             </p>
 
             {subscribed ? (
-              <div className="p-3.5 bg-[#1a1712] border border-[#f2ca50]/60 text-[#f2ca50] flex items-center gap-2.5 text-[12.5px] rounded-lg shadow-inner">
+              <div className="p-3 bg-[#171511] border border-[#f2ca50]/60 text-[#f2ca50] flex items-center gap-2 text-[12px] rounded-lg shadow-inner">
                 <CheckCircle2 className="w-4 h-4 text-[#f2ca50] shrink-0" />
-                <span>Executive Gazette dispatched. Email authenticated.</span>
+                <span>Executive Gazette dispatched.</span>
               </div>
             ) : (
-              <form onSubmit={handleSubscribe} className="flex items-center bg-[#14120f] border border-[#3e3422] rounded-lg p-1 focus-within:border-[#f2ca50] transition-colors shadow-inner">
+              <form onSubmit={handleSubscribe} className="flex items-center bg-[#14120e] border border-[#342b1a] rounded-lg p-1 focus-within:border-[#f2ca50] transition-all shadow-inner">
                 <input
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-transparent px-3 py-2 text-[12.5px] text-[#e5e2e3] placeholder:text-[#8c826e] focus:outline-none"
-                  placeholder="Enter institutional or diplomatic email"
+                  className="w-full bg-transparent px-3 py-1.5 font-['Montserrat'] text-[12px] text-[#f4efe6] placeholder:text-[#786e5c] focus:outline-none"
+                  placeholder="Enter institutional email"
                   type="email"
                   required
                 />
                 <button
-                  className="px-3.5 py-2 bg-gradient-to-r from-[#d4af37] to-[#f2ca50] hover:from-[#ffe088] text-[#141002] rounded-md font-['Montserrat'] text-[10px] font-bold uppercase tracking-wider cursor-pointer transition-all shadow-xs flex items-center justify-center shrink-0"
+                  className="h-8 px-3 bg-gradient-to-r from-[#d4af37] to-[#f2ca50] hover:brightness-110 text-[#141002] rounded-md font-['Montserrat'] text-[10px] font-bold uppercase tracking-wider cursor-pointer transition-all shadow-xs flex items-center justify-center shrink-0"
                   type="submit"
                   aria-label="Subscribe to Gazette"
                 >
@@ -212,7 +217,7 @@ export const Footer: React.FC<FooterProps> = ({
             )}
 
             {/* Diplomatic Transmission Channels */}
-            <div className="flex items-center gap-2.5 pt-2 text-[#d0c5af]">
+            <div className="flex items-center gap-2 pt-1 text-[#c8beaa]">
               {[
                 { icon: Globe, label: 'Global Chancery', href: '#globe' },
                 { icon: Send, label: 'Encrypted Telegram', href: '#telegram' },
@@ -225,9 +230,9 @@ export const Footer: React.FC<FooterProps> = ({
                     key={idx}
                     href={item.href}
                     title={item.label}
-                    className="w-8 h-8 rounded-lg bg-[#161410] border border-[#362e1d] hover:border-[#f2ca50] flex items-center justify-center text-[#c8beaa] hover:text-[#f2ca50] hover:bg-[#201c15] transition-all shadow-xs"
+                    className="w-8 h-8 rounded-lg bg-[#14120e] border border-[#342b1a] hover:border-[#f2ca50] flex items-center justify-center text-[#c8beaa] hover:text-[#f2ca50] hover:bg-[#1f1b14] transition-all shadow-xs"
                   >
-                    <Icon className="w-4 h-4" />
+                    <Icon className="w-3.5 h-3.5" />
                   </a>
                 );
               })}
@@ -235,36 +240,36 @@ export const Footer: React.FC<FooterProps> = ({
           </div>
         </div>
 
-        {/* Bottom Bar - Flawless Responsive Alignment on all screens */}
-        <div className="pt-8 border-t border-[#3e3422]/60 flex flex-col md:flex-row items-center justify-between gap-5 font-['Montserrat'] text-[12px] pb-6 sm:pb-0">
-          <div className="flex flex-col sm:flex-row items-center text-center sm:text-left gap-2 sm:gap-3 text-[#b5aa96]">
-            <span className="flex items-center gap-1.5 text-[#d4af37] font-semibold text-[11px] uppercase tracking-wider">
-              <ShieldCheck className="w-4 h-4 text-[#f2ca50] shrink-0" />
+        {/* Bottom Bar - Clean, Horizontal, Responsive Alignment on all screens */}
+        <div className="pt-6 sm:pt-8 border-t border-[#241f14] flex flex-col md:flex-row items-center justify-between gap-4 font-['Montserrat'] text-[11.5px] text-[#9e9482]">
+          <div className="flex flex-col sm:flex-row items-center text-center sm:text-left gap-2 sm:gap-3">
+            <span className="flex items-center gap-1.5 text-[#d4af37] font-semibold text-[10.5px] uppercase tracking-wider">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#f2ca50] shrink-0" />
               256-Bit TLS Diplomatic Encryption
             </span>
-            <span className="hidden sm:inline text-[#4d4635]">•</span>
-            <span className="text-[11.5px] text-[#9e9482]">Office of Zeenat Kureshi © 2026. All Rights Reserved.</span>
+            <span className="hidden sm:inline text-[#3e3422]">•</span>
+            <span className="text-[11px] text-[#8a806e]">Office of Zeenat Kureshi © 2026. All Rights Reserved.</span>
           </div>
 
-          {/* Legal Protocol Links - Symmetrical, never awkward wrapping */}
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 font-['Montserrat'] text-[10px] sm:text-[11px] font-semibold tracking-[0.14em] sm:tracking-[0.16em] uppercase">
+          {/* Legal Protocol Links */}
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 font-['Montserrat'] text-[10.5px] font-semibold tracking-[0.14em] uppercase">
             <button
               onClick={() => setActiveModal('privacy')}
-              className="px-2.5 py-1 rounded bg-[#161410] sm:bg-transparent border border-[#3e3422] sm:border-transparent text-[#c8beaa] hover:text-[#f2ca50] transition-colors cursor-pointer whitespace-nowrap"
+              className="text-[#a89e8b] hover:text-[#f2ca50] transition-colors cursor-pointer"
             >
               Protocol &amp; Privacy
             </button>
-            <span className="hidden sm:inline text-[#3e3422]">•</span>
+            <span className="text-[#3e3422]">•</span>
             <button
               onClick={() => setActiveModal('terms')}
-              className="px-2.5 py-1 rounded bg-[#161410] sm:bg-transparent border border-[#3e3422] sm:border-transparent text-[#c8beaa] hover:text-[#f2ca50] transition-colors cursor-pointer whitespace-nowrap"
+              className="text-[#a89e8b] hover:text-[#f2ca50] transition-colors cursor-pointer"
             >
               Terms of Mandate
             </button>
-            <span className="hidden sm:inline text-[#3e3422]">•</span>
+            <span className="text-[#3e3422]">•</span>
             <button
               onClick={() => setActiveModal('accreditations')}
-              className="px-2.5 py-1 rounded bg-[#161410] sm:bg-transparent border border-[#3e3422] sm:border-transparent text-[#c8beaa] hover:text-[#f2ca50] transition-colors cursor-pointer whitespace-nowrap"
+              className="text-[#a89e8b] hover:text-[#f2ca50] transition-colors cursor-pointer"
             >
               Accreditations
             </button>
@@ -275,19 +280,19 @@ export const Footer: React.FC<FooterProps> = ({
       {/* Legal / Protocol Modals */}
       {activeModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-          <div className="bg-[#1c1b1c] border border-[#4d4635] max-w-lg w-full p-6 space-y-4 relative shadow-2xl">
+          <div className="bg-[#14120e] border border-[#3e3422] max-w-lg w-full p-6 sm:p-8 space-y-4 relative shadow-2xl rounded-xl">
             <button
               onClick={() => setActiveModal(null)}
-              className="absolute top-4 right-4 text-[#d0c5af] hover:text-[#f2ca50] text-sm uppercase tracking-widest cursor-pointer"
+              className="absolute top-4 right-4 text-[#a89e8b] hover:text-[#f2ca50] text-sm uppercase tracking-widest cursor-pointer"
             >
               Close [×]
             </button>
-            <h3 className="font-serif text-[22px] text-[#f2ca50] uppercase">
+            <h3 className="font-['Cinzel'] text-[20px] sm:text-[22px] text-[#f2ca50]">
               {activeModal === 'privacy' && 'Diplomatic Protocol & Privacy Standard'}
               {activeModal === 'terms' && 'Terms of Bilateral Mandate'}
               {activeModal === 'accreditations' && 'Diplomatic Accreditations & Registry'}
             </h3>
-            <div className="text-[14px] text-[#d0c5af] space-y-3 leading-relaxed">
+            <div className="font-['Montserrat'] text-[13px] text-[#c8beaa] space-y-3 leading-relaxed font-light">
               {activeModal === 'privacy' && (
                 <p>
                   All transmissions handled by the Executive Protocol Desk adhere to international diplomatic secrecy standards, 256-bit TLS hardware-level encryption, and non-disclosure bilateral covenants. Ministerial data is never brokered to non-sovereign parties.
@@ -307,7 +312,7 @@ export const Footer: React.FC<FooterProps> = ({
             <div className="pt-2">
               <button
                 onClick={() => setActiveModal(null)}
-                className="w-full py-2.5 bg-[#f2ca50] text-[#3c2f00] font-sans text-[11px] font-bold uppercase tracking-widest hover:bg-[#ffe088] transition-colors cursor-pointer"
+                className="w-full py-3 bg-gradient-to-r from-[#d4af37] to-[#f2ca50] text-[#141002] font-['Montserrat'] text-[10.5px] font-bold uppercase tracking-widest rounded-lg hover:brightness-110 transition-all cursor-pointer shadow-md"
               >
                 Acknowledge &amp; Return
               </button>

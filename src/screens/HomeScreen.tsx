@@ -879,104 +879,118 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
       </section>
 
       {/* SECTION 5: DIRECT DIPLOMATIC CHANCERY PROTOCOL DESK */}
-      <section className="w-full bg-[#131314] py-24 relative" id="connect">
-        <div className="max-w-[1440px] mx-auto px-5 lg:px-20">
-          <div className="bg-[#1c1b1c] rounded-2xl p-8 lg:p-16 shadow-2xl relative overflow-hidden border border-[#4d4635]/40">
-            {/* Ambient Gold Flare */}
-            <div className="absolute -right-24 -bottom-24 w-96 h-96 bg-[#f2ca50]/10 rounded-full blur-3xl pointer-events-none"></div>
+      <section className="w-full bg-[#0c0b09] py-16 sm:py-24 relative overflow-hidden" id="connect">
+        {/* Ambient Gold Radial Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-[#f2ca50]/5 rounded-full blur-[160px] pointer-events-none"></div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-              <div className="lg:col-span-5 space-y-5">
-                <div className="space-y-1.5">
-                  <span className="font-sans text-[10px] font-semibold text-[#f2ca50] tracking-[0.25em] uppercase">
-                    Institutional Protocol
-                  </span>
-                  <h2 className="font-serif text-[24px] sm:text-[28px] lg:text-[30px] text-[#e5e2e3] font-normal leading-tight">
-                    Direct Diplomatic &amp; Media Chancery
+        <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-20">
+          <div className="bg-gradient-to-b from-[#181511]/95 to-[#100e0b]/95 rounded-2xl p-6 sm:p-10 lg:p-14 shadow-2xl border border-[#3e3422] relative overflow-hidden">
+            {/* Ambient Gold Corner Flare */}
+            <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-[#f2ca50]/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+              {/* Left Info Column */}
+              <div className="lg:col-span-5 space-y-6">
+                <div className="space-y-2">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1f1a14] border border-[#d4af37]/40 text-[#f2ca50] text-[9.5px] sm:text-[10px] font-bold uppercase tracking-[0.22em] rounded-full shadow-sm">
+                    <Sparkles className="w-3 h-3 text-[#f2ca50]" />
+                    <span>Institutional Protocol</span>
+                  </div>
+                  <h2 className="font-['Cinzel'] text-[24px] sm:text-[32px] lg:text-[36px] font-normal text-[#f4efe6] leading-tight tracking-tight">
+                    Direct Diplomatic &amp; <span className="italic font-serif text-[#f2ca50]">Media Chancery</span>
                   </h2>
                 </div>
 
-                <p className="font-sans text-[13.5px] text-[#d0c5af] leading-relaxed">
-                  For bilateral trade inquiries, film co-production submissions, keynote summit invitations, or accredited press communiqués, kindly contact the Executive Protocol Desk.
+                <p className="font-['Montserrat'] text-[12.5px] sm:text-[13.5px] text-[#c8beaa] font-light leading-relaxed">
+                  For bilateral trade inquiries, film co-production submissions, keynote summit invitations, or accredited press communiqués, kindly transmit via the Executive Protocol Desk.
                 </p>
 
-                <div className="space-y-4 pt-2">
-                  <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-full bg-[#2a2a2b] flex items-center justify-center text-[#f2ca50] shrink-0 border border-[#4d4635]/50">
-                      <span className="material-symbols-outlined text-xl">encrypted</span>
+                <div className="space-y-3 pt-1">
+                  <div className="flex items-center gap-3.5 p-3 rounded-xl bg-[#12100d] border border-[#2e2617]">
+                    <div className="w-10 h-10 rounded-lg bg-[#1c1913] flex items-center justify-center text-[#f2ca50] shrink-0 border border-[#3e3422]">
+                      <Lock className="w-4 h-4 text-[#f2ca50]" />
                     </div>
                     <div>
-                      <span className="font-sans text-[11px] font-semibold text-[#e5e2e3] block uppercase tracking-wider">
+                      <span className="font-['Montserrat'] text-[10.5px] font-bold text-[#f4efe6] block uppercase tracking-wider">
                         Confidential Transmission
                       </span>
-                      <span className="font-sans text-[13px] text-[#d0c5af]">
-                        End-to-End Encrypted Protocol
+                      <span className="font-['Montserrat'] text-[12px] text-[#a89e8b] font-light">
+                        Hardware-level 256-Bit TLS Encryption
                       </span>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-full bg-[#2a2a2b] flex items-center justify-center text-[#e9c176] shrink-0 border border-[#4d4635]/50">
-                      <span className="material-symbols-outlined text-xl">schedule</span>
+                  <div className="flex items-center gap-3.5 p-3 rounded-xl bg-[#12100d] border border-[#2e2617]">
+                    <div className="w-10 h-10 rounded-lg bg-[#1c1913] flex items-center justify-center text-[#e9c176] shrink-0 border border-[#3e3422]">
+                      <ShieldCheck className="w-4 h-4 text-[#e9c176]" />
                     </div>
                     <div>
-                      <span className="font-sans text-[11px] font-semibold text-[#e5e2e3] block uppercase tracking-wider">
+                      <span className="font-['Montserrat'] text-[10.5px] font-bold text-[#f4efe6] block uppercase tracking-wider">
                         Protocol Review SLA
                       </span>
-                      <span className="font-sans text-[13px] text-[#d0c5af]">
-                        Institutional responses within 24–48 hours
+                      <span className="font-['Montserrat'] text-[12px] text-[#a89e8b] font-light">
+                        Official ministerial response within 24–48 hours
                       </span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Protocol Fast Form */}
-              <div className="lg:col-span-7 bg-[#0e0e0f] p-6 lg:p-8 rounded-xl shadow-inner border border-[#4d4635]/40">
+              {/* Right Form Column */}
+              <div className="lg:col-span-7 bg-[#0f0e0c]/90 p-5 sm:p-8 lg:p-9 rounded-2xl shadow-xl border border-[#342b1a]">
                 {formSubmitted ? (
-                  <div className="p-8 text-center space-y-4">
-                    <div className="w-14 h-14 rounded-full bg-[#f2ca50]/10 border border-[#f2ca50] mx-auto flex items-center justify-center text-[#f2ca50]">
-                      <CheckCircle2 className="w-7 h-7" />
+                  <div className="py-8 px-4 text-center space-y-4">
+                    <div className="w-14 h-14 rounded-full bg-[#f2ca50]/15 border border-[#f2ca50] mx-auto flex items-center justify-center text-[#f2ca50] shadow-[0_0_20px_rgba(242,202,80,0.3)]">
+                      <CheckCircle2 className="w-7 h-7 text-[#f2ca50]" />
                     </div>
-                    <h3 className="font-serif text-[24px] text-[#e5e2e3]">Executive Dispatch Transmitted</h3>
-                    <p className="font-sans text-[14px] text-[#d0c5af] max-w-md mx-auto leading-relaxed">
-                      Your institutional transmission has been authenticated by 256-bit TLS protocol and logged into the Diplomatic Secretariat dossier.
-                    </p>
-                    <div className="p-3 bg-[#1c1b1c] border border-[#4d4635] max-w-xs mx-auto text-center">
-                      <span className="text-[10px] text-[#99907c] uppercase tracking-wider block">Tracking Identifier</span>
-                      <span className="font-mono text-[14px] text-[#f2ca50] font-bold tracking-wider">{formSubmitted}</span>
+                    <div className="space-y-1">
+                      <h3 className="font-['Cinzel'] text-[22px] sm:text-[24px] text-[#f4efe6] font-medium">
+                        Executive Dispatch Authenticated
+                      </h3>
+                      <p className="font-['Montserrat'] text-[12.5px] sm:text-[13.5px] text-[#c8beaa] font-light max-w-md mx-auto leading-relaxed">
+                        Your institutional transmission has been secured by 256-bit protocol and registered with the Diplomatic Secretariat dossier.
+                      </p>
+                    </div>
+                    <div className="p-3.5 bg-[#171511] border border-[#3e3422] max-w-xs mx-auto rounded-lg text-center shadow-inner">
+                      <span className="text-[9.5px] font-['Montserrat'] text-[#9e9482] uppercase tracking-[0.16em] block">
+                        Tracking Identifier
+                      </span>
+                      <span className="font-mono text-[14px] text-[#f2ca50] font-bold tracking-wider">
+                        {formSubmitted}
+                      </span>
                     </div>
                     <button
                       onClick={() => setFormSubmitted(null)}
-                      className="px-6 py-2.5 bg-[#f2ca50] text-[#3c2f00] font-sans text-[11px] font-bold uppercase tracking-widest hover:bg-[#ffe088] transition-colors cursor-pointer"
+                      className="px-6 py-2.5 bg-gradient-to-r from-[#d4af37] to-[#f2ca50] text-[#141002] font-['Montserrat'] text-[10.5px] font-bold uppercase tracking-[0.16em] rounded-lg shadow-md hover:brightness-110 transition-all cursor-pointer"
                     >
                       Transmit Another Dispatch
                     </button>
                   </div>
                 ) : (
-                  <form onSubmit={handleDispatchSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="space-y-1">
-                        <label className="font-sans text-[11px] font-semibold text-[#d0c5af] uppercase tracking-wider block">
-                          Full Name / Honorific
+                  <form onSubmit={handleDispatchSubmit} className="space-y-4 sm:space-y-5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+                      <div className="space-y-1.5">
+                        <label className="font-['Montserrat'] text-[10px] sm:text-[10.5px] font-bold text-[#c8beaa] uppercase tracking-[0.16em] block">
+                          Full Name / Honorific <span className="text-[#f2ca50]">*</span>
                         </label>
                         <input
                           value={formData.fullName}
                           onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                          className="w-full bg-[#1c1b1c] border border-[#4d4635] px-4 py-3 font-sans text-[13px] text-[#e5e2e3] placeholder:text-[#99907c] focus:outline-none focus:border-[#f2ca50]"
+                          className="w-full bg-[#161410] border border-[#342b1a] hover:border-[#f2ca50]/50 focus:border-[#f2ca50] focus:ring-1 focus:ring-[#f2ca50]/30 rounded-lg px-3.5 sm:px-4 py-2.5 sm:py-3 font-['Montserrat'] text-[12.5px] sm:text-[13px] text-[#f4efe6] placeholder:text-[#786e5c] transition-all outline-none"
                           placeholder="e.g. Amb. / Dr. / Ms. Sarah Al-Maktoum"
                           required
                           type="text"
                         />
                       </div>
-                      <div className="space-y-1">
-                        <label className="font-sans text-[11px] font-semibold text-[#d0c5af] uppercase tracking-wider block">
-                          Official / Institutional Email
+
+                      <div className="space-y-1.5">
+                        <label className="font-['Montserrat'] text-[10px] sm:text-[10.5px] font-bold text-[#c8beaa] uppercase tracking-[0.16em] block">
+                          Official / Institutional Email <span className="text-[#f2ca50]">*</span>
                         </label>
                         <input
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          className="w-full bg-[#1c1b1c] border border-[#4d4635] px-4 py-3 font-sans text-[13px] text-[#e5e2e3] placeholder:text-[#99907c] focus:outline-none focus:border-[#f2ca50]"
+                          className="w-full bg-[#161410] border border-[#342b1a] hover:border-[#f2ca50]/50 focus:border-[#f2ca50] focus:ring-1 focus:ring-[#f2ca50]/30 rounded-lg px-3.5 sm:px-4 py-2.5 sm:py-3 font-['Montserrat'] text-[12.5px] sm:text-[13px] text-[#f4efe6] placeholder:text-[#786e5c] transition-all outline-none"
                           placeholder="name@ministry-or-firm.com"
                           required
                           type="email"
@@ -984,63 +998,71 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="space-y-1">
-                        <label className="font-sans text-[11px] font-semibold text-[#d0c5af] uppercase tracking-wider block">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+                      <div className="space-y-1.5">
+                        <label className="font-['Montserrat'] text-[10px] sm:text-[10.5px] font-bold text-[#c8beaa] uppercase tracking-[0.16em] block">
                           Mandate Category
                         </label>
-                        <select
-                          value={formData.mandate}
-                          onChange={(e) => setFormData({ ...formData, mandate: e.target.value })}
-                          className="w-full bg-[#1c1b1c] border border-[#4d4635] px-4 py-3 font-sans text-[13px] text-[#e5e2e3] focus:outline-none focus:border-[#f2ca50]"
-                        >
-                          <option>Collaborate — Bilateral Partnership &amp; Missions</option>
-                          <option>Media Inquiry — Press, Broadcast &amp; Festival Coverage</option>
-                          <option>Investment Discussion — Sovereign Wealth &amp; FDI Corridors</option>
-                          <option>Trade — GCC–India Free Zone Industrial Expansion</option>
-                          <option>Women Leadership — Summit Keynote &amp; Governance</option>
-                        </select>
+                        <div className="relative">
+                          <select
+                            value={formData.mandate}
+                            onChange={(e) => setFormData({ ...formData, mandate: e.target.value })}
+                            className="w-full bg-[#161410] border border-[#342b1a] hover:border-[#f2ca50]/50 focus:border-[#f2ca50] focus:ring-1 focus:ring-[#f2ca50]/30 rounded-lg px-3.5 sm:px-4 py-2.5 sm:py-3 font-['Montserrat'] text-[12px] sm:text-[12.5px] text-[#f4efe6] transition-all outline-none cursor-pointer appearance-none pr-9 truncate"
+                          >
+                            <option className="bg-[#161410] text-[#f4efe6]">Collaborate — Bilateral Partnership</option>
+                            <option className="bg-[#161410] text-[#f4efe6]">Media Inquiry — Press &amp; Film</option>
+                            <option className="bg-[#161410] text-[#f4efe6]">Investment Discussion — Sovereign FDI</option>
+                            <option className="bg-[#161410] text-[#f4efe6]">Trade — Free Zone Corridors</option>
+                            <option className="bg-[#161410] text-[#f4efe6]">Women Leadership — Conclaves</option>
+                          </select>
+                          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-[#f2ca50]">
+                            <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20">
+                              <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                            </svg>
+                          </div>
+                        </div>
                       </div>
-                      <div className="space-y-1">
-                        <label className="font-sans text-[11px] font-semibold text-[#d0c5af] uppercase tracking-wider block">
+
+                      <div className="space-y-1.5">
+                        <label className="font-['Montserrat'] text-[10px] sm:text-[10.5px] font-bold text-[#c8beaa] uppercase tracking-[0.16em] block">
                           Jurisdiction / Base
                         </label>
                         <input
                           value={formData.jurisdiction}
                           onChange={(e) => setFormData({ ...formData, jurisdiction: e.target.value })}
-                          className="w-full bg-[#1c1b1c] border border-[#4d4635] px-4 py-3 font-sans text-[13px] text-[#e5e2e3] placeholder:text-[#99907c] focus:outline-none focus:border-[#f2ca50]"
+                          className="w-full bg-[#161410] border border-[#342b1a] hover:border-[#f2ca50]/50 focus:border-[#f2ca50] focus:ring-1 focus:ring-[#f2ca50]/30 rounded-lg px-3.5 sm:px-4 py-2.5 sm:py-3 font-['Montserrat'] text-[12.5px] sm:text-[13px] text-[#f4efe6] placeholder:text-[#786e5c] transition-all outline-none"
                           placeholder="Dubai / New Delhi / Riyadh / London"
                           type="text"
                         />
                       </div>
                     </div>
 
-                    <div className="space-y-1">
-                      <label className="font-sans text-[11px] font-semibold text-[#d0c5af] uppercase tracking-wider block">
-                        Executive Brief / Dispatch
+                    <div className="space-y-1.5">
+                      <label className="font-['Montserrat'] text-[10px] sm:text-[10.5px] font-bold text-[#c8beaa] uppercase tracking-[0.16em] block">
+                        Executive Brief / Dispatch <span className="text-[#f2ca50]">*</span>
                       </label>
                       <textarea
                         value={formData.brief}
                         onChange={(e) => setFormData({ ...formData, brief: e.target.value })}
-                        className="w-full bg-[#1c1b1c] border border-[#4d4635] px-4 py-3 font-sans text-[13px] text-[#e5e2e3] placeholder:text-[#99907c] focus:outline-none focus:border-[#f2ca50]"
+                        className="w-full bg-[#161410] border border-[#342b1a] hover:border-[#f2ca50]/50 focus:border-[#f2ca50] focus:ring-1 focus:ring-[#f2ca50]/30 rounded-lg px-3.5 sm:px-4 py-2.5 sm:py-3 font-['Montserrat'] text-[12.5px] sm:text-[13px] text-[#f4efe6] placeholder:text-[#786e5c] transition-all outline-none resize-none"
                         placeholder="Outline the nature of your institution's initiative or communique..."
                         required
                         rows={3}
                       ></textarea>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
-                      <span className="font-sans text-[13px] text-[#d0c5af] flex items-center gap-1.5">
-                        <ShieldCheck className="w-4 h-4 text-[#f2ca50]" />
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-1">
+                      <span className="font-['Montserrat'] text-[11.5px] text-[#a89e8b] flex items-center gap-1.5 order-2 sm:order-1">
+                        <ShieldCheck className="w-4 h-4 text-[#f2ca50] shrink-0" />
                         Diplomatic Confidentiality Assured
                       </span>
 
                       <button
-                        className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-[#f2ca50] text-[#3c2f00] font-sans text-[11px] font-bold tracking-widest uppercase hover:bg-[#ffe088] transition-all duration-300 shadow-lg cursor-pointer"
+                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 bg-gradient-to-r from-[#d4af37] via-[#f2ca50] to-[#e6bc48] hover:from-[#ffe088] text-[#141002] font-['Montserrat'] text-[10.5px] sm:text-[11px] font-bold tracking-[0.16em] uppercase rounded-lg shadow-[0_4px_20px_rgba(242,202,80,0.25)] hover:scale-101 active:scale-98 transition-all cursor-pointer order-1 sm:order-2 min-h-[46px]"
                         type="submit"
                       >
-                        Transmit Executive Dispatch
-                        <Send className="w-3.5 h-3.5 ml-2" />
+                        <span>Transmit Executive Dispatch</span>
+                        <Send className="w-3.5 h-3.5" />
                       </button>
                     </div>
                   </form>
