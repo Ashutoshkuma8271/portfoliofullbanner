@@ -252,10 +252,9 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
               </p>
             </div>
 
-            {/* Slide Title with Fluid Luxury Typography */}
-            <h1 className="font-['Bodoni Moda'] text-[36px] sm:text-[56px] md:text-[76px] lg:text-[96px] xl:text-[108px] leading-[0.92] tracking-[-0.03em] font-normal text-white drop-shadow-2xl">
-              {activeSlideData.titlePrefix}
-              <br />
+            {/* Slide Title with Fluid Luxury Horizontal Typography */}
+            <h1 className="font-['Bodoni Moda'] text-[28px] xs:text-[34px] sm:text-[48px] md:text-[62px] lg:text-[76px] xl:text-[88px] leading-[1.08] tracking-[-0.02em] font-normal text-white drop-shadow-2xl flex flex-wrap items-baseline gap-x-2 sm:gap-x-3.5">
+              <span>{activeSlideData.titlePrefix}</span>
               <span className="italic transition-colors duration-500 gold-gradient-text">
                 {activeSlideData.titleHighlight}
               </span>
@@ -326,32 +325,25 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
           </div>
 
           {/* Interactive Slide Switcher */}
-          {/* Mobile View: 4 Symmetrical Luxury Progress Pills (Zero Truncation) */}
-          <div className="grid grid-cols-4 gap-1.5 xs:gap-2 sm:hidden mt-4 pt-1 w-full">
+          {/* Mobile View: 4 Clean, Luxury Navigation Tabs (Page numbers removed for uncluttered elegance) */}
+          <div className="grid grid-cols-4 gap-1.5 xs:gap-2 sm:hidden mt-4 pt-1 w-full pb-2">
             {heroSlides.map((slide, index) => {
               const isSelected = index === currentSlide;
               return (
                 <button
                   key={slide.id}
                   onClick={() => goToSlide(index)}
-                  className={`py-2 px-1 rounded-lg text-center border transition-all duration-300 relative overflow-hidden cursor-pointer ${
+                  className={`h-11 px-1 rounded-lg flex items-center justify-center text-center border transition-all duration-300 relative overflow-hidden cursor-pointer active:scale-95 ${
                     isSelected
-                      ? 'bg-gradient-to-b from-[#211d14] to-[#12100c] border-[#f2ca50] shadow-[0_0_14px_rgba(242,202,80,0.35)]'
-                      : 'bg-[#0e0d0b]/80 border-white/10 text-white/50 hover:border-[#f2ca50]/40'
+                      ? 'bg-gradient-to-b from-[#241e12] to-[#110f0c] border-[#f2ca50] shadow-[0_0_16px_rgba(242,202,80,0.35)]'
+                      : 'bg-[#0e0d0b]/85 border-white/10 hover:border-[#f2ca50]/40'
                   }`}
                 >
                   {isSelected && (
-                    <div className="absolute top-0 left-0 w-full h-[2px] bg-[#f2ca50] shadow-[0_0_6px_#f2ca50]" />
+                    <div className="absolute top-0 left-0 w-full h-[2.5px] bg-[#f2ca50] shadow-[0_0_8px_#f2ca50]" />
                   )}
                   <span
-                    className={`font-mono text-[7.5px] tracking-widest block leading-tight ${
-                      isSelected ? 'text-[#f2ca50]' : 'text-white/40'
-                    }`}
-                  >
-                    {slide.slideNumber}
-                  </span>
-                  <span
-                    className={`font-['Montserrat'] text-[8.5px] font-bold uppercase tracking-wider block mt-0.5 whitespace-nowrap ${
+                    className={`font-['Montserrat'] text-[9px] xs:text-[9.5px] font-bold uppercase tracking-wider whitespace-nowrap ${
                       isSelected ? 'text-[#f2ca50]' : 'text-white/70'
                     }`}
                   >
