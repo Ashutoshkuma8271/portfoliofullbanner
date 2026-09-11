@@ -195,15 +195,15 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
           );
         })}
 
-        {/* Top-Right Header Status */}
-        <div className="absolute top-20 sm:top-24 right-4 sm:right-7 lg:right-12 z-20 flex items-center gap-2 sm:gap-3 text-[8px] sm:text-[9px] font-['Montserrat'] tracking-[0.2em] sm:tracking-[0.25em] uppercase text-white/70">
+        {/* Top-Right Header Status (Tablet & Desktop only to prevent mobile overlap) */}
+        <div className="hidden sm:flex absolute top-20 sm:top-24 right-4 sm:right-7 lg:right-12 z-20 items-center gap-2 sm:gap-3 text-[8px] sm:text-[9px] font-['Montserrat'] tracking-[0.2em] sm:tracking-[0.25em] uppercase text-white/70">
           <div className="flex items-center gap-2 bg-black/60 backdrop-blur-md px-2.5 sm:px-3.5 py-1 sm:py-1.5 border border-[#f2ca50]/20 rounded-full shadow-lg">
             <span className="w-2 h-2 rounded-full bg-[#f2ca50] animate-pulse"></span>
             <span className="font-semibold text-white/90">Sovereign Folio</span>
           </div>
         </div>
 
-        {/* Left & Right Slider Floating Chevrons (visible on tablet/desktop, compact touch) */}
+        {/* Left & Right Slider Floating Chevrons (visible on tablet/desktop) */}
         <button
           onClick={handlePrevSlide}
           className="hidden md:flex absolute left-3 sm:left-6 lg:left-8 top-1/2 -translate-y-1/2 z-20 p-2.5 sm:p-3.5 bg-black/50 backdrop-blur-md border border-[#f2ca50]/20 hover:border-[#f2ca50] text-white/80 hover:text-[#f2ca50] transition-all hover:scale-110 rounded-full cursor-pointer shadow-2xl group"
@@ -220,76 +220,92 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
           <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-0.5 transition-transform" />
         </button>
 
-        {/* Main Content Area with Responsive Padding & Fluid Typography */}
-        <div className="relative z-10 w-full max-w-[1500px] mx-auto px-4 sm:px-8 lg:px-16 xl:px-20 pb-4 sm:pb-8 lg:pb-12 pt-8 sm:pt-16">
-          <div className="max-w-4xl">
-            {/* Slide Category Badge */}
-            <div className="flex items-center gap-2.5 sm:gap-3 mb-2.5 sm:mb-4 transition-all duration-700 ease-out">
+        {/* Main Content Area with Clean, Spacious Luxury Mobile & Desktop Hierarchy */}
+        <div className="relative z-10 w-full max-w-[1500px] mx-auto px-4 sm:px-8 lg:px-16 xl:px-20 pb-4 sm:pb-8 lg:pb-12 pt-4 sm:pt-12">
+          <div className="max-w-4xl space-y-3 sm:space-y-4">
+            {/* Slide Category Badge & Kicker */}
+            <div className="flex items-center gap-2 sm:gap-3 transition-all duration-700 ease-out">
               <span
-                className="w-6 sm:w-10 h-px transition-colors duration-500"
+                className="w-4 sm:w-8 h-px transition-colors duration-500"
                 style={{ backgroundColor: activeSlideData.accentColor }}
               ></span>
               <span
-                className="font-['Montserrat'] text-[8.5px] sm:text-[10px] md:text-[10.5px] font-bold tracking-[0.25em] sm:tracking-[0.3em] uppercase"
+                className="font-['Montserrat'] text-[8px] sm:text-[10px] md:text-[10.5px] font-bold tracking-[0.2em] sm:tracking-[0.28em] uppercase"
                 style={{ color: activeSlideData.accentColor }}
               >
                 {activeSlideData.badge}
               </span>
             </div>
 
-            {/* Exact Strong Positioning Line with Fluid Text Size */}
-            <div className="mb-3 sm:mb-4 inline-block bg-black/55 backdrop-blur-md border border-[#f2ca50]/25 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-sm max-w-full">
-              <p className="font-['Montserrat'] text-[8.5px] sm:text-[10px] md:text-[11px] text-[#f2ca50] font-semibold tracking-[0.12em] sm:tracking-[0.18em] uppercase leading-relaxed break-words">
+            {/* Positioning Pill - Compact & Elegant on Mobile */}
+            <div className="inline-block bg-black/60 backdrop-blur-md border border-[#f2ca50]/30 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-md max-w-full">
+              <p className="font-['Montserrat'] text-[8px] sm:text-[9.5px] md:text-[10.5px] text-[#f2ca50] font-semibold tracking-[0.1em] sm:tracking-[0.16em] uppercase leading-relaxed">
                 Zeenat Kureshi — Film Producer | GCC–India Trade Commissioner | National President
               </p>
             </div>
 
-            {/* Slide Title with Luxury Responsive Typography */}
-            <h1 className="font-['Bodoni Moda'] text-[34px] xs:text-[42px] sm:text-[60px] md:text-[80px] lg:text-[104px] xl:text-[116px] leading-[0.9] tracking-[-0.04em] font-normal text-white drop-shadow-2xl">
+            {/* Slide Title with Fluid Luxury Typography */}
+            <h1 className="font-['Bodoni Moda'] text-[36px] sm:text-[56px] md:text-[76px] lg:text-[96px] xl:text-[108px] leading-[0.92] tracking-[-0.03em] font-normal text-white drop-shadow-2xl">
               {activeSlideData.titlePrefix}
               <br />
-              <span
-                className="italic transition-colors duration-500 gold-gradient-text"
-              >
+              <span className="italic transition-colors duration-500 gold-gradient-text">
                 {activeSlideData.titleHighlight}
               </span>
             </h1>
 
-            {/* Short 5-6 Line Luxury Introduction */}
+            {/* Concise Luxury Introduction (Concise on mobile, expanded on desktop) */}
             <div
-              className="mt-3.5 sm:mt-6 max-w-2xl border-l-2 pl-3.5 sm:pl-5 transition-colors duration-500 bg-black/30 backdrop-blur-xs py-1"
+              className="max-w-2xl border-l-2 pl-3 sm:pl-4 transition-colors duration-500 bg-black/40 backdrop-blur-xs py-1 rounded-r"
               style={{ borderColor: activeSlideData.accentColor }}
             >
-              <p className="font-['Montserrat'] text-[11.5px] sm:text-[13px] md:text-[14.5px] text-white/90 font-light leading-relaxed">
+              <p className="font-['Montserrat'] text-[11px] sm:text-[13px] md:text-[14px] text-white/90 font-light leading-relaxed line-clamp-3 sm:line-clamp-none">
                 {activeSlideData.description}
               </p>
             </div>
 
-            {/* 3 Call to Action Buttons: Collaborate | Media Inquiry | Investment Discussion */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3.5 mt-5 sm:mt-8">
-              {/* 1. Collaborate */}
+            {/* Responsive Call to Action Buttons */}
+            {/* Mobile View: Clean 2-Button Row (Takes up minimal space, highly legible) */}
+            <div className="flex sm:hidden items-center gap-2 pt-1">
               <button
                 onClick={() => onOpenCollaborate('collaborate')}
-                className="group inline-flex items-center justify-center gap-2.5 px-5 sm:px-6 py-3 sm:py-3.5 bg-[#f2ca50] text-[#080808] font-['Montserrat'] text-[9.5px] sm:text-[10px] font-bold tracking-[0.18em] uppercase transition-all duration-300 hover:bg-[#ffe088] hover:scale-102 cursor-pointer shadow-xl shadow-[#f2ca50]/20 min-h-[44px]"
+                className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-4 bg-gradient-to-r from-[#d4af37] via-[#f2ca50] to-[#e6bc48] text-[#080808] font-['Montserrat'] text-[9.5px] font-bold tracking-[0.14em] uppercase rounded-lg shadow-lg active:scale-95 transition-all"
+              >
+                <Handshake className="w-3.5 h-3.5" />
+                <span>Collaborate</span>
+                <ArrowRight className="w-3 h-3" />
+              </button>
+
+              <button
+                onClick={() => onSelectTab(activeSlideData.tabTarget)}
+                className="inline-flex items-center justify-center gap-1.5 py-2.5 px-3.5 border border-[#f2ca50]/50 bg-black/60 text-[#f2ca50] font-['Montserrat'] text-[9.5px] font-semibold tracking-[0.12em] uppercase rounded-lg shadow-sm active:scale-95 transition-all"
+              >
+                <span>Explore</span>
+                <ArrowRight className="w-3 h-3" />
+              </button>
+            </div>
+
+            {/* Tablet & Desktop View: Full 3 Luxury CTAs */}
+            <div className="hidden sm:flex items-center gap-3 pt-2">
+              <button
+                onClick={() => onOpenCollaborate('collaborate')}
+                className="group inline-flex items-center justify-center gap-2.5 px-5 sm:px-6 py-3 bg-[#f2ca50] text-[#080808] font-['Montserrat'] text-[10px] font-bold tracking-[0.18em] uppercase transition-all duration-300 hover:bg-[#ffe088] hover:scale-102 cursor-pointer shadow-xl shadow-[#f2ca50]/20 rounded-lg min-h-[44px]"
               >
                 <Handshake className="w-3.5 h-3.5 text-[#080808]" />
                 <span>Collaborate</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </button>
 
-              {/* 2. Media Inquiry */}
               <button
                 onClick={() => onOpenCollaborate('media')}
-                className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-3 sm:py-3.5 border border-white/30 bg-black/40 backdrop-blur-md text-white font-['Montserrat'] text-[9.5px] sm:text-[10px] font-semibold tracking-[0.16em] uppercase hover:border-[#f2ca50] hover:text-[#f2ca50] hover:bg-black/60 transition-all cursor-pointer shadow-lg min-h-[44px]"
+                className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-3 border border-white/30 bg-black/40 backdrop-blur-md text-white font-['Montserrat'] text-[10px] font-semibold tracking-[0.16em] uppercase hover:border-[#f2ca50] hover:text-[#f2ca50] hover:bg-black/60 transition-all cursor-pointer shadow-lg rounded-lg min-h-[44px]"
               >
                 <Newspaper className="w-3.5 h-3.5" />
                 <span>Media Inquiry</span>
               </button>
 
-              {/* 3. Investment Discussion */}
               <button
                 onClick={() => onOpenCollaborate('investment')}
-                className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-3 sm:py-3.5 border border-[#f2ca50]/70 bg-[#f2ca50]/10 backdrop-blur-md text-[#f2ca50] font-['Montserrat'] text-[9.5px] sm:text-[10px] font-semibold tracking-[0.16em] uppercase hover:bg-[#f2ca50] hover:text-[#080808] transition-all cursor-pointer shadow-lg min-h-[44px]"
+                className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-3 border border-[#f2ca50]/70 bg-[#f2ca50]/10 backdrop-blur-md text-[#f2ca50] font-['Montserrat'] text-[10px] font-semibold tracking-[0.16em] uppercase hover:bg-[#f2ca50] hover:text-[#080808] transition-all cursor-pointer shadow-lg rounded-lg min-h-[44px]"
               >
                 <Coins className="w-3.5 h-3.5" />
                 <span>Investment Discussion</span>
@@ -297,34 +313,63 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
             </div>
           </div>
 
-          {/* 4 Interactive Slide Category Tabs with Linear Progress Lines (Responsive 2-col on mobile, 4-col on desktop) */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3.5 mt-6 sm:mt-10 lg:mt-14 max-w-5xl">
+          {/* Interactive Slide Switcher */}
+          {/* Mobile View: Sleek, compact 4-segment luxury progress pills */}
+          <div className="grid grid-cols-4 gap-1.5 sm:hidden mt-4 pt-1">
             {heroSlides.map((slide, index) => {
               const isSelected = index === currentSlide;
               return (
                 <button
                   key={slide.id}
                   onClick={() => goToSlide(index)}
-                  className={`group text-left p-2.5 sm:p-4 rounded-sm backdrop-blur-md transition-all duration-300 cursor-pointer border relative overflow-hidden card-3d-hover ${
+                  className={`py-2 px-1 rounded-md text-center border transition-all duration-300 relative overflow-hidden ${
+                    isSelected
+                      ? 'bg-[#1a1712]/95 border-[#f2ca50] shadow-[0_0_10px_rgba(242,202,80,0.3)]'
+                      : 'bg-black/50 border-white/10 text-white/60'
+                  }`}
+                >
+                  {isSelected && (
+                    <div className="absolute top-0 left-0 w-full h-[2px] bg-[#f2ca50]" />
+                  )}
+                  <span
+                    className={`font-['Montserrat'] text-[8px] font-bold uppercase tracking-wider block truncate ${
+                      isSelected ? 'text-[#f2ca50]' : 'text-white/70'
+                    }`}
+                  >
+                    {slide.tabLabel}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Tablet & Desktop View: 4 Detailed Interactive Cards */}
+          <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-3.5 mt-8 lg:mt-12 max-w-5xl">
+            {heroSlides.map((slide, index) => {
+              const isSelected = index === currentSlide;
+              return (
+                <button
+                  key={slide.id}
+                  onClick={() => goToSlide(index)}
+                  className={`group text-left p-3.5 sm:p-4 rounded-lg backdrop-blur-md transition-all duration-300 cursor-pointer border relative overflow-hidden card-3d-hover ${
                     isSelected
                       ? 'bg-black/85 border-[#f2ca50] shadow-xl shadow-[#f2ca50]/15'
                       : 'bg-black/45 border-white/10 hover:border-[#f2ca50]/40 hover:bg-black/65'
                   }`}
                 >
-                  {/* Active Linear Progress Bar on Active Tab */}
                   {isSelected && (
                     <div className="absolute top-0 left-0 w-full h-[2.5px] bg-[#f2ca50] z-10 shadow-sm shadow-[#f2ca50]" />
                   )}
 
                   <div className="flex items-center justify-between mb-1">
                     <span
-                      className="text-[7.5px] sm:text-[8.5px] font-['Montserrat'] tracking-[0.15em] sm:tracking-[0.2em] font-semibold uppercase truncate"
+                      className="text-[8px] sm:text-[8.5px] font-['Montserrat'] tracking-[0.16em] sm:tracking-[0.2em] font-semibold uppercase truncate"
                       style={{ color: isSelected ? slide.accentColor : '#b5aa96' }}
                     >
                       {slide.category}
                     </span>
                     <span
-                      className={`text-[7px] sm:text-[7.5px] uppercase tracking-wider font-['Montserrat'] px-1 sm:px-1.5 py-0.5 rounded border transition-opacity hidden xs:inline-block ${
+                      className={`text-[7px] sm:text-[7.5px] uppercase tracking-wider font-['Montserrat'] px-1.5 py-0.5 rounded border transition-opacity ${
                         isSelected
                           ? 'border-[#f2ca50]/50 text-[#f2ca50] bg-[#f2ca50]/10 opacity-100'
                           : 'border-transparent text-white/30 opacity-0 group-hover:opacity-100'
@@ -335,13 +380,13 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
                   </div>
 
                   <h3
-                    className={`font-['Bodoni Moda'] text-[13px] sm:text-[16px] transition-colors leading-snug truncate ${
+                    className={`font-['Bodoni Moda'] text-[14px] sm:text-[16px] transition-colors leading-snug truncate ${
                       isSelected ? 'text-white font-medium' : 'text-white/75 group-hover:text-white'
                     }`}
                   >
                     {slide.tabLabel}
                   </h3>
-                  <p className="font-['Montserrat'] text-[7.5px] sm:text-[9px] text-white/55 uppercase tracking-[0.08em] mt-0.5 sm:mt-1 line-clamp-1">
+                  <p className="font-['Montserrat'] text-[8px] sm:text-[9px] text-white/55 uppercase tracking-[0.08em] mt-1 line-clamp-1">
                     {slide.tagline}
                   </p>
                 </button>
