@@ -132,28 +132,17 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Column 3: Institutional & Deliverables Suite */}
           <div className="lg:col-span-2 space-y-3">
             <h3 className="font-['Montserrat'] text-[10px] sm:text-[10.5px] font-bold text-[#f4efe6] uppercase tracking-[0.2em]">
-              Executive Suite
+              Institutional Suite
             </h3>
             <ul className="space-y-2 font-['Montserrat'] text-[12.5px] sm:text-[13px]">
-              {onOpenDesignMockups && (
+              {onOpenMediaKit && (
                 <li>
                   <button
-                    onClick={onOpenDesignMockups}
-                    className="hover:text-[#f2ca50] transition-colors cursor-pointer text-left flex items-center gap-1.5 py-0.5"
+                    onClick={onOpenMediaKit}
+                    className="hover:text-[#f2ca50] transition-colors cursor-pointer text-left flex items-center gap-1.5 py-0.5 group"
                   >
-                    <span>3 Design Concepts</span>
-                    <span className="text-[8.5px] px-1.5 py-0.5 bg-[#f2ca50]/15 text-[#f2ca50] rounded border border-[#f2ca50]/30 font-semibold">Dossier</span>
-                  </button>
-                </li>
-              )}
-              {onOpenAdminCms && (
-                <li>
-                  <button
-                    onClick={onOpenAdminCms}
-                    className="hover:text-[#f2ca50] transition-colors cursor-pointer text-left flex items-center gap-1.5 py-0.5"
-                  >
-                    <Lock className="w-3.5 h-3.5 text-[#f2ca50]" />
-                    <span>CMS Admin Portal</span>
+                    <Download className="w-3.5 h-3.5 text-[#f2ca50] group-hover:scale-110 transition-transform" />
+                    <span>Accredited Media Kit</span>
                   </button>
                 </li>
               )}
@@ -161,24 +150,31 @@ export const Footer: React.FC<FooterProps> = ({
                 <li>
                   <button
                     onClick={onOpenInvestorLead}
-                    className="hover:text-[#f2ca50] transition-colors cursor-pointer text-left flex items-center gap-1.5 py-0.5"
+                    className="hover:text-[#f2ca50] transition-colors cursor-pointer text-left flex items-center gap-1.5 py-0.5 group"
                   >
-                    <TrendingUp className="w-3.5 h-3.5 text-[#e9c176]" />
+                    <TrendingUp className="w-3.5 h-3.5 text-[#e9c176] group-hover:scale-110 transition-transform" />
                     <span>Investor Qualification</span>
                   </button>
                 </li>
               )}
-              {onOpenMediaKit && (
-                <li>
-                  <button
-                    onClick={onOpenMediaKit}
-                    className="hover:text-[#f2ca50] transition-colors cursor-pointer text-left flex items-center gap-1.5 py-0.5"
-                  >
-                    <Download className="w-3.5 h-3.5 text-[#f2ca50]" />
-                    <span>Download Media Kit</span>
-                  </button>
-                </li>
-              )}
+              <li>
+                <button
+                  onClick={() => { onSelectTab('trade-investment'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                  className="hover:text-[#f2ca50] transition-colors cursor-pointer text-left flex items-center gap-1.5 py-0.5 group"
+                >
+                  <Globe className="w-3.5 h-3.5 text-[#f2ca50] group-hover:scale-110 transition-transform" />
+                  <span>Bilateral CEPA Dossier</span>
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => { onSelectTab('contact'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                  className="hover:text-[#f2ca50] transition-colors cursor-pointer text-left flex items-center gap-1.5 py-0.5 group"
+                >
+                  <Send className="w-3.5 h-3.5 text-[#e9c176] group-hover:scale-110 transition-transform" />
+                  <span>Diplomatic Chancery Desk</span>
+                </button>
+              </li>
             </ul>
           </div>
 
@@ -247,8 +243,14 @@ export const Footer: React.FC<FooterProps> = ({
               <ShieldCheck className="w-3.5 h-3.5 text-[#f2ca50] shrink-0" />
               256-Bit TLS Diplomatic Encryption
             </span>
-            <span className="hidden sm:inline text-[#3e3422]">•</span>
-            <span className="text-[11px] text-[#8a806e]">Office of Zeenat Kureshi © 2026. All Rights Reserved.</span>
+            <button
+              onClick={onOpenAdminCms}
+              className="text-[11px] text-[#8a806e] hover:text-[#f2ca50] transition-colors cursor-pointer text-center sm:text-left inline-flex items-center gap-1.5"
+              title="Diplomatic Secretariat Access"
+            >
+              <span>Office of Zeenat Kureshi © 2026. All Rights Reserved.</span>
+              <Lock className="w-2.5 h-2.5 opacity-30 hover:opacity-100 text-[#f2ca50] transition-opacity" />
+            </button>
           </div>
 
           {/* Legal Protocol Links */}

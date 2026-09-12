@@ -31,7 +31,6 @@ export const Header: React.FC<HeaderProps> = ({
   const handleNavClick = (tab: TabId) => {
     onSelectTab(tab);
     setMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (

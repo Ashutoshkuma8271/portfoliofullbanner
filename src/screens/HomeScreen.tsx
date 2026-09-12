@@ -19,8 +19,6 @@ import {
   Film,
   Users,
   Coins,
-  ChevronLeft,
-  ChevronRight,
 } from 'lucide-react';
 import {
   TradeVisualEffect,
@@ -162,21 +160,13 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
   };
 
   const handleNextSlide = () => {
-    if (currentSlide < heroSlides.length - 1) {
-      setCurrentSlide((prev) => prev + 1);
-      setSlideProgressKey((prev) => prev + 1);
-    } else {
-      // Loop back to start if triggered
-      setCurrentSlide(0);
-      setSlideProgressKey((prev) => prev + 1);
-    }
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    setSlideProgressKey((prev) => prev + 1);
   };
 
   const handlePrevSlide = () => {
-    if (currentSlide > 0) {
-      setCurrentSlide((prev) => prev - 1);
-      setSlideProgressKey((prev) => prev + 1);
-    }
+    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+    setSlideProgressKey((prev) => prev + 1);
   };
 
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -198,8 +188,6 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
   };
 
   const activeSlideData = heroSlides[currentSlide];
-  const isFirstSlide = currentSlide === 0;
-  const isLastSlide = currentSlide === heroSlides.length - 1;
 
   const handleDispatchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -224,8 +212,8 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
           return (
             <div
               key={slide.id}
-              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                isActive ? 'opacity-100 z-0' : 'opacity-0 -z-10 pointer-events-none'
+              className={`absolute inset-0 transition-opacity duration-1000 cubic-bezier(0.4, 0, 0.2, 1) ${
+                isActive ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
               }`}
             >
               <img
@@ -260,34 +248,6 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
             <span className="font-semibold text-white/90">Sovereign Folio</span>
           </div>
         </div>
-
-        {/* Left Floating Chevron (Visible when not on the very first slide, prominent when on the last slide) */}
-        <button
-          onClick={handlePrevSlide}
-          disabled={isFirstSlide}
-          className={`hidden md:flex absolute left-3 sm:left-6 lg:left-8 top-1/2 -translate-y-1/2 z-20 p-3 sm:p-3.5 bg-black/60 backdrop-blur-md border border-[#f2ca50]/40 text-[#f2ca50] transition-all duration-300 rounded-full shadow-2xl group ${
-            isFirstSlide
-              ? 'opacity-0 pointer-events-none scale-75'
-              : 'opacity-100 scale-100 hover:scale-110 hover:border-[#f2ca50] hover:bg-black/85 cursor-pointer shadow-[0_0_20px_rgba(242,202,80,0.25)]'
-          }`}
-          aria-label="Previous Slide"
-        >
-          <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 group-hover:-translate-x-0.5 transition-transform" />
-        </button>
-
-        {/* Right Floating Chevron (Visible when not on the last slide) */}
-        <button
-          onClick={handleNextSlide}
-          disabled={isLastSlide}
-          className={`hidden md:flex absolute right-3 sm:right-6 lg:right-8 top-1/2 -translate-y-1/2 z-20 p-3 sm:p-3.5 bg-black/60 backdrop-blur-md border border-[#f2ca50]/40 text-[#f2ca50] transition-all duration-300 rounded-full shadow-2xl group ${
-            isLastSlide
-              ? 'opacity-0 pointer-events-none scale-75'
-              : 'opacity-100 scale-100 hover:scale-110 hover:border-[#f2ca50] hover:bg-black/85 cursor-pointer shadow-[0_0_20px_rgba(242,202,80,0.25)]'
-          }`}
-          aria-label="Next Slide"
-        >
-          <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-0.5 transition-transform" />
-        </button>
 
         {/* Main Content Area with Clean, Spacious Luxury Mobile & Desktop Hierarchy */}
         <div className="relative z-10 w-full max-w-[1500px] mx-auto px-4 sm:px-8 lg:px-16 xl:px-20 pb-4 sm:pb-8 lg:pb-12 pt-4 sm:pt-12">
@@ -423,7 +383,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
           </div>
 
           {/* Tablet & Desktop View: 4 Detailed Interactive Cards */}
-          <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-3.5 mt-8 lg:mt-12 max-w-5xl">
+          <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-3.5 mt-8 lg:mt-12 max-w-5xl z-20 relative">
             {heroSlides.map((slide, index) => {
               const isSelected = index === currentSlide;
               return (

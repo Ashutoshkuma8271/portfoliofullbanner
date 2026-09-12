@@ -37,19 +37,39 @@ export default function App() {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
-      if (['home', 'about-zeenat', 'trade-investment', 'media-press', 'women-leadership', 'blog', 'contact'].includes(hash)) {
+      if (hash === 'admin' || hash === 'cms') {
+        setIsAdminCmsOpen(true);
+      } else if (['home', 'about-zeenat', 'trade-investment', 'media-press', 'women-leadership', 'blog', 'contact'].includes(hash)) {
         setActiveTab(hash as TabId);
       }
     };
 
+    // Check hash on initial mount
+    handleHashChange();
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Secure admin shortcuts: Ctrl+Shift+A (Admin CMS), Ctrl+Shift+D (Design Dossier)
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
+        e.preventDefault();
+        setIsAdminCmsOpen((prev) => !prev);
+      } else if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'D' || e.key === 'd')) {
+        e.preventDefault();
+        setIsDesignMockupsOpen((prev) => !prev);
+      }
+    };
+
     window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
   }, []);
 
   const handleSelectTab = (tab: TabId) => {
     setActiveTab(tab);
     window.location.hash = tab;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   };
 
   const handleOpenCollaborate = (mode: CollaborateMode = 'collaborate') => {
